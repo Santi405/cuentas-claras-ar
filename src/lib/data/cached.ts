@@ -23,6 +23,10 @@ export async function listDistritos() {
   return getRepository().listDistritos();
 }
 
+export async function listAniosDeclaracion() {
+  return getRepository().listAniosDeclaracion();
+}
+
 export async function getSeriesMacro() {
   return getRepository().getSeriesMacro();
 }

@@ -7,6 +7,9 @@ import {
   variacionInteranual,
 } from "@/lib/domain/calculos";
 import { nombreCompleto } from "@/lib/domain/formatters";
+import { paginate, PAGE_SIZE_MAX } from "@/lib/domain/pagination";
+import { sameDistrito, slugifyDistrito } from "@/lib/domain/slugs";
+import { sortLegisladores } from "@/lib/domain/sort";
 import type {
   Bien,
   Declaracion,
@@ -18,7 +21,6 @@ import type {
   LegisladorListItem,
   LegisladorSearchParams,
   Mandato,
-  Paginated,
   Persona,
   SerieMacro,
 } from "@/lib/domain/types";
@@ -27,7 +29,6 @@ import { getDb } from "./db";
 import * as t from "./schema";
 
 const PAGE_SIZE_DEFAULT = 25;
-const PAGE_SIZE_MAX = 100;
 
 function num(value: string | number): number {
   return typeof value === "number" ? value : Number(value);
@@ -184,14 +185,6 @@ async function buildDetalle(persona: Persona): Promise<LegisladorDetalle> {
   };
 }
 
-function paginate<T>(items: T[], page: number, pageSize: number): Paginated<T> {
-  const start = (page - 1) * pageSize;
-  return {
-    data: items.slice(start, start + pageSize),
-    meta: { page, pageSize, total: items.length },
-  };
-}
-
 export const postgresRepository: LegisladorRepository = {
   mode() {
     return "postgres";
@@ -211,6 +204,8 @@ export const postgresRepository: LegisladorRepository = {
           ilike(t.personas.nombre, q),
           ilike(t.personas.slug, q),
           sql`unaccent(lower(${t.personas.apellido} || ' ' || ${t.personas.nombre})) ilike unaccent(lower(${q}))`,
+          sql`unaccent(lower(${t.personas.nombre} || ' ' || ${t.personas.apellido})) ilike unaccent(lower(${q}))`,
+          sql`exists (select 1 from mandatos m where m.persona_id = ${t.personas.id} and unaccent(lower(m.distrito)) ilike unaccent(lower(${q})))`,
         ),
       );
     }
@@ -230,10 +225,14 @@ export const postgresRepository: LegisladorRepository = {
       const actual = mandatoActual(ms);
       const estado = estadoDe(ms);
       if (params.camara && actual?.camara !== params.camara) continue;
-      if (params.distrito && actual?.distrito !== params.distrito) continue;
+      if (params.distrito && !sameDistrito(actual?.distrito, params.distrito)) {
+        continue;
+      }
       if (params.estado && estado !== params.estado) continue;
       const visibles = elegirDeclaracionesVisibles(await declaracionesPersona(persona.id));
-      if (params.anio && !visibles.some((d) => d.anioFiscal === params.anio)) continue;
+      if (params.anio != null && !visibles.some((d) => d.anioFiscal === params.anio)) {
+        continue;
+      }
       const resumenes = visibles.map(toResumen);
       const evolucion = construirEvolucion(resumenes);
       const ultima = resumenes.at(-1) ?? null;
@@ -253,18 +252,7 @@ export const postgresRepository: LegisladorRepository = {
       });
     }
 
-    const sort = params.sort ?? "nombre";
-    const dir = sort.startsWith("-") ? -1 : 1;
-    const key = sort.replace("-", "") as "nombre" | "neto" | "anio";
-    items.sort((a, b) => {
-      let cmp = 0;
-      if (key === "nombre") cmp = a.nombreCompleto.localeCompare(b.nombreCompleto, "es-AR");
-      if (key === "neto") cmp = (a.netoArs ?? -Infinity) - (b.netoArs ?? -Infinity);
-      if (key === "anio") cmp = (a.ultimoAnioDeclarado ?? 0) - (b.ultimoAnioDeclarado ?? 0);
-      return cmp * dir;
-    });
-
-    return paginate(items, page, pageSize);
+    return paginate(sortLegisladores(items, params.sort), page, pageSize);
   },
 
   async getLegisladorBySlug(slug: string) {
@@ -328,7 +316,18 @@ export const postgresRepository: LegisladorRepository = {
     const rows = await db
       .selectDistinct({ distrito: t.mandatos.distrito })
       .from(t.mandatos);
-    return rows.map((r) => r.distrito).sort((a, b) => a.localeCompare(b, "es-AR"));
+    return rows
+      .map((r) => r.distrito)
+      .sort((a, b) => a.localeCompare(b, "es-AR"))
+      .map((nombre) => ({ nombre, slug: slugifyDistrito(nombre) }));
+  },
+
+  async listAniosDeclaracion() {
+    const db = getDb();
+    const rows = await db
+      .selectDistinct({ anioFiscal: t.declaraciones.anioFiscal })
+      .from(t.declaraciones);
+    return rows.map((r) => r.anioFiscal).sort((a, b) => b - a);
   },
 
   async getSeriesMacro(): Promise<SerieMacro[]> {

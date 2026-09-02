@@ -40,6 +40,7 @@ export async function GET(request: Request) {
       page: result.meta.page,
       page_size: result.meta.pageSize,
       total: result.meta.total,
+      total_pages: result.meta.totalPages,
     },
   });
 }
