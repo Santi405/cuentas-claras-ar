@@ -32,7 +32,7 @@ export function FiltrosExplorador({
           type="search"
           defaultValue={values.q ?? ""}
           placeholder="Apellido o nombre"
-          className="w-full border border-line bg-paper px-3 py-2 text-sm"
+          className="w-full border border-line bg-paper px-3 py-2 text-sm placeholder:text-ink-muted"
         />
       </div>
       <div>
@@ -119,7 +119,7 @@ export function FiltrosExplorador({
       <div className="flex items-end md:col-span-6">
         <button
           type="submit"
-          className="bg-accent px-4 py-2 text-sm font-medium text-paper-raised hover:opacity-90"
+          className="min-h-11 bg-accent px-4 py-2 text-sm font-medium text-paper-raised hover:opacity-90"
         >
           Aplicar filtros
         </button>

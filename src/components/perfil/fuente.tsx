@@ -47,8 +47,14 @@ export function VistaToggle({
   ];
   return (
     <div>
-      <p className="mb-2 text-xs uppercase tracking-wide text-ink-muted">Vista de montos</p>
-      <div className="flex flex-wrap gap-2">
+      <p id="vista-montos-label" className="mb-2 text-xs uppercase tracking-wide text-ink-muted">
+        Vista de montos
+      </p>
+      <div
+        role="group"
+        aria-labelledby="vista-montos-label"
+        className="flex flex-wrap gap-2"
+      >
         {opciones.map((o) => (
           <Link
             key={o.id}
@@ -56,8 +62,8 @@ export function VistaToggle({
             aria-current={vista === o.id ? "page" : undefined}
             className={
               vista === o.id
-                ? "bg-ink px-3 py-1 text-sm text-paper-raised"
-                : "border border-line px-3 py-1 text-sm hover:bg-accent-soft"
+                ? "inline-flex min-h-11 items-center bg-ink px-3 py-2 text-sm text-paper-raised"
+                : "inline-flex min-h-11 items-center border border-line px-3 py-2 text-sm hover:bg-accent-soft"
             }
           >
             {o.label}

@@ -2,6 +2,13 @@ import { formatArs } from "@/lib/domain/formatters";
 import type { Bien, Deuda } from "@/lib/domain/types";
 
 export function TablaBienes({ items }: { items: Bien[] }) {
+  if (items.length === 0) {
+    return (
+      <p className="text-sm text-ink-muted">
+        No hay bienes itemizados en esta declaración.
+      </p>
+    );
+  }
   const total = items.reduce((s, i) => s + i.importeArs, 0);
   return (
     <div className="overflow-x-auto">

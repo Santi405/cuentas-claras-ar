@@ -25,7 +25,7 @@ import {
   formatUsdApprox,
 } from "@/lib/domain/formatters";
 import { VISTAS_MONTO, type VistaMonto } from "@/lib/domain/types";
-import { SITE_NAME } from "@/lib/site";
+import { getSiteUrl, SITE_NAME } from "@/lib/site";
 
 function isVista(v: string | undefined): v is VistaMonto {
   return !!v && (VISTAS_MONTO as readonly string[]).includes(v);
@@ -54,15 +54,24 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const redirectTo = await resolveSlugRedirect(slug);
+  if (redirectTo) permanentRedirect(`/legisladores/${redirectTo}`);
   const legislador = await getLegisladorBySlug(slug);
   if (!legislador) notFound();
   const title = legislador.persona.nombreCompleto;
   const description = `Declaraciones juradas patrimoniales de ${title}. Valores declarados, no de mercado.`;
+  const canonical = `/legisladores/${slug}`;
   return {
     title,
     description,
-    alternates: { canonical: `/legisladores/${slug}` },
-    openGraph: { title: `${title} | ${SITE_NAME}`, description },
+    alternates: { canonical },
+    openGraph: {
+      title: `${title} | ${SITE_NAME}`,
+      description,
+      url: canonical,
+      locale: "es_AR",
+      type: "profile",
+    },
   };
 }
 
@@ -215,7 +224,7 @@ export default async function PerfilPage({
             jobTitle: mandatoActual
               ? `${formatCamara(mandatoActual.camara)} · ${mandatoActual.distrito}`
               : "Legislador/a nacional",
-            url: `/legisladores/${slug}`,
+            url: `${getSiteUrl()}/legisladores/${slug}`,
           }),
         }}
       />

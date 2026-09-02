@@ -41,7 +41,7 @@ Búsqueda en Postgres: `unaccent` + `ILIKE` y índice `pg_trgm` sobre nombre.
 
 ## Ingesta (Fase 7)
 
-Lee CSV DJPI (consolidado, bienes, deudas). Omite archivos o columnas de grupo familiar. Solo acepta filas que parezcan legisladores nacionales. Fusiona por CUIT; sin CUIT manda a cola de revisión (no hay autogmerge por nombre).
+Lee CSV DJPI (consolidado, bienes, deudas). Omite archivos o columnas de grupo familiar. Solo acepta filas que parezcan legisladores nacionales. Fusiona por CUIT; sin CUIT manda a cola de revisión (no hay automerge por nombre).
 
 ## API
 

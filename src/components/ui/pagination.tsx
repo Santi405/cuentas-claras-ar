@@ -22,14 +22,14 @@ export function Pagination({
       <ul className="flex gap-2">
         {page > 1 ? (
           <li>
-            <Link className="border border-line px-3 py-1 hover:bg-accent-soft" href={makeHref(page - 1)}>
+            <Link className="inline-flex min-h-11 items-center border border-line px-3 py-2 hover:bg-accent-soft" href={makeHref(page - 1)}>
               Anterior
             </Link>
           </li>
         ) : null}
         {page < pages ? (
           <li>
-            <Link className="border border-line px-3 py-1 hover:bg-accent-soft" href={makeHref(page + 1)}>
+            <Link className="inline-flex min-h-11 items-center border border-line px-3 py-2 hover:bg-accent-soft" href={makeHref(page + 1)}>
               Siguiente
             </Link>
           </li>

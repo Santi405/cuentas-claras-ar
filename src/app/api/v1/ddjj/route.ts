@@ -1,7 +1,10 @@
-import { getLegisladorByIdOrSlug, searchLegisladores } from "@/lib/data/cached";
 import { jsonError, jsonOk, optionsOk } from "@/lib/api/envelope";
 import { asRecord, ddjjQuerySchema } from "@/lib/api/schemas";
-import { listDeclaraciones } from "@/lib/data/cached";
+import {
+  getLegisladorByIdOrSlug,
+  listDeclaraciones,
+  searchLegisladores,
+} from "@/lib/data/cached";
 
 export function OPTIONS() {
   return optionsOk();
