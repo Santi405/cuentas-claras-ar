@@ -1,6 +1,6 @@
 {
   "name": "Cuentas Claras",
-  "install": "pnpm install --frozen-lockfile",
+  "install": "pnpm install --frozen-lockfile && pnpm exec next typegen",
   "terminals": [
     {
       "name": "dev",
