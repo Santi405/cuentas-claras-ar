@@ -1,6 +1,4 @@
-import { Suspense } from "react";
 import type { Metadata } from "next";
-import { redirect } from "next/navigation";
 import Link from "next/link";
 import { FiltrosExplorador } from "@/components/explorador/filtros";
 import { TablaLegisladores } from "@/components/explorador/tabla";
@@ -18,6 +16,7 @@ import {
   toSearchParams,
   type ExplorerQuery,
 } from "@/lib/domain/explorador";
+import type { LegisladorListItem, Paginated } from "@/lib/domain/types";
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 
@@ -28,17 +27,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-function ResultadosFallback() {
-  return <p className="text-ink-muted">Cargando listado…</p>;
-}
-
-async function Resultados({ query }: { query: ExplorerQuery }) {
-  const result = await searchLegisladores(toSearchParams(query));
-
-  if (query.page > result.meta.totalPages && result.meta.totalPages > 0) {
-    redirect(explorerHref({ ...query, page: result.meta.totalPages }));
-  }
-
+function Resultados({
+  query,
+  result,
+}: {
+  query: ExplorerQuery;
+  result: Paginated<LegisladorListItem>;
+}) {
   const makeHref = (page: number) => explorerHref({ ...query, page });
   const filtrosActivos = hasActiveFilters(query);
 
@@ -86,10 +81,13 @@ export default async function HomePage({
   searchParams: SearchParams;
 }) {
   const query = parseExplorerQuery(await searchParams);
-  const [distritos, anios] = await Promise.all([
+  const [distritos, anios, result] = await Promise.all([
     listDistritos(),
     listAniosDeclaracion(),
+    searchLegisladores(toSearchParams(query)),
   ]);
+
+  const resolvedQuery = { ...query, page: result.meta.page };
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
@@ -111,15 +109,13 @@ export default async function HomePage({
         <FiltrosExplorador
           distritos={distritos}
           anios={anios}
-          values={query}
+          values={resolvedQuery}
         />
         <p className="mt-4 text-xs text-ink-muted">
           Valores declarados en pesos del año fiscal, habitualmente a valuación
           fiscal. No equivalen a patrimonio de mercado ni a precios actuales.
         </p>
-        <Suspense fallback={<ResultadosFallback />}>
-          <Resultados query={query} />
-        </Suspense>
+        <Resultados query={resolvedQuery} result={result} />
       </div>
     </div>
   );
