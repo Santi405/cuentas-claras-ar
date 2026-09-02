@@ -1,4 +1,4 @@
-import { isMockMode } from "@/lib/data";
+import { isMockMode } from "@/lib/data/mode";
 
 export function DemoBanner() {
   if (!isMockMode()) return null;

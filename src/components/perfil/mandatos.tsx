@@ -6,6 +6,11 @@ import {
 import type { Mandato } from "@/lib/domain/types";
 
 export function TimelineMandatos({ mandatos }: { mandatos: Mandato[] }) {
+  if (mandatos.length === 0) {
+    return (
+      <p className="text-sm text-ink-muted">No hay mandatos cargados para esta persona.</p>
+    );
+  }
   return (
     <ol className="space-y-3 border-l-2 border-line pl-4">
       {mandatos.map((m) => (
@@ -51,8 +56,8 @@ export function AniosNav({
             aria-current={active ? "page" : undefined}
             className={
               active
-                ? "bg-accent px-3 py-1 text-sm text-paper-raised"
-                : "border border-line px-3 py-1 text-sm hover:bg-accent-soft"
+                ? "inline-flex min-h-11 items-center bg-accent px-3 py-2 text-sm text-paper-raised"
+                : "inline-flex min-h-11 items-center border border-line px-3 py-2 text-sm hover:bg-accent-soft"
             }
           >
             {anio}

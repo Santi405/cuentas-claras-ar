@@ -22,7 +22,7 @@ export default function DatosPage() {
         <p>Lectura pública, JSON, versionada por path.</p>
         <ul className="list-disc space-y-2 pl-5">
           <li>
-            <Link className="text-accent underline" href="/api/v1/legisladores">
+            <Link className="text-accent underline underline-offset-2" href="/api/v1/legisladores">
               GET /api/v1/legisladores
             </Link>
           </li>
@@ -33,12 +33,12 @@ export default function DatosPage() {
             GET /api/v1/legisladores/[id o slug]/ddjj
           </li>
           <li>
-            <Link className="text-accent underline" href="/api/v1/ddjj">
+            <Link className="text-accent underline underline-offset-2" href="/api/v1/ddjj">
               GET /api/v1/ddjj
             </Link>
           </li>
           <li>
-            <Link className="text-accent underline" href="/api/v1/mandatos">
+            <Link className="text-accent underline underline-offset-2" href="/api/v1/mandatos">
               GET /api/v1/mandatos
             </Link>
           </li>
@@ -69,7 +69,7 @@ export default function DatosPage() {
         <p>
           Dataset de referencia:{" "}
           <a
-            className="text-accent underline"
+            className="text-accent underline underline-offset-2"
             href="https://datos.jus.gob.ar/dataset/declaraciones-juradas-patrimoniales-integrales"
           >
             declaraciones juradas patrimoniales integrales
@@ -87,7 +87,8 @@ export default function DatosPage() {
             name: "DDJJ Congreso — recorte de legisladores nacionales",
             description:
               "Declaraciones juradas patrimoniales de diputados y senadores nacionales, con provenance. Sin grupo familiar.",
-            license: "https://opensource.org/licenses/MIT",
+            isBasedOn:
+              "https://datos.jus.gob.ar/dataset/declaraciones-juradas-patrimoniales-integrales",
             creator: { "@type": "Organization", name: "DDJJ Congreso" },
           }),
         }}

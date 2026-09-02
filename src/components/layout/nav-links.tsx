@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const links = [
   { href: "/", label: "Explorador" },
@@ -13,19 +16,29 @@ export function NavLinks({
   className?: string;
   onNavigate?: () => void;
 }) {
+  const pathname = usePathname();
+
   return (
     <ul className={className}>
-      {links.map((link) => (
-        <li key={link.href}>
-          <Link
-            href={link.href}
-            className="text-sm font-medium text-ink hover:text-accent"
-            onClick={onNavigate}
-          >
-            {link.label}
-          </Link>
-        </li>
-      ))}
+      {links.map((link) => {
+        const current = pathname === link.href;
+        return (
+          <li key={link.href}>
+            <Link
+              href={link.href}
+              className={
+                current
+                  ? "text-sm font-medium text-accent"
+                  : "text-sm font-medium text-ink hover:text-accent"
+              }
+              aria-current={current ? "page" : undefined}
+              onClick={onNavigate}
+            >
+              {link.label}
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
 }

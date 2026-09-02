@@ -58,6 +58,7 @@ body {
   padding: 0.5rem 0.75rem;
 }
 
-.skip-link:focus {
+.skip-link:focus,
+.skip-link:focus-visible {
   top: 1rem;
 }

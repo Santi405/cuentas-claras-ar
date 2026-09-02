@@ -7,7 +7,11 @@ export function SiteHeader() {
   return (
     <header className="border-b border-line bg-paper-raised">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
-        <Link href="/" className="font-serif text-xl tracking-tight text-ink">
+        <Link
+          href="/"
+          className="font-serif text-xl tracking-tight text-ink"
+          aria-label={`${SITE_NAME}, ir al inicio`}
+        >
           {SITE_NAME}
         </Link>
         <nav aria-label="Principal" className="hidden md:block">

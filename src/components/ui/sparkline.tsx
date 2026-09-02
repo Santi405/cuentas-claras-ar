@@ -1,22 +1,27 @@
 import type { EvolucionAnual } from "@/lib/domain/types";
 
+function hasNeto(
+  punto: EvolucionAnual,
+): punto is EvolucionAnual & { neto: number } {
+  return punto.neto !== null;
+}
+
 export function Sparkline({
   puntos,
 }: {
   puntos: EvolucionAnual[];
 }) {
-  const valores = puntos.filter((p) => p.neto !== null).map((p) => p.neto as number);
+  const valores = puntos.filter(hasNeto);
   if (valores.length < 2) return null;
-  const min = Math.min(...valores);
-  const max = Math.max(...valores);
+  const min = Math.min(...valores.map((p) => p.neto));
+  const max = Math.max(...valores.map((p) => p.neto));
   const span = max - min || 1;
   const w = 160;
   const h = 36;
-  const coords = puntos
-    .filter((p) => p.neto !== null)
-    .map((p, i, arr) => {
-      const x = (i / (arr.length - 1)) * w;
-      const y = h - ((p.neto! - min) / span) * h;
+  const coords = valores
+    .map((p, i) => {
+      const x = (i / (valores.length - 1)) * w;
+      const y = h - ((p.neto - min) / span) * h;
       return `${x},${y}`;
     })
     .join(" ");

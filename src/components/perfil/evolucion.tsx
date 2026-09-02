@@ -4,6 +4,13 @@ import { variacionInteranual } from "@/lib/domain/calculos";
 import type { EvolucionAnual } from "@/lib/domain/types";
 
 export function TablaEvolucion({ evolucion }: { evolucion: EvolucionAnual[] }) {
+  if (evolucion.length === 0) {
+    return (
+      <p className="text-sm text-ink-muted">
+        No hay serie de declaraciones para mostrar.
+      </p>
+    );
+  }
   return (
     <div>
       <Sparkline puntos={evolucion} />
