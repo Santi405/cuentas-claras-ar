@@ -2,6 +2,7 @@ import type {
   Camara,
   DataMode,
   DeclaracionDetalle,
+  Distrito,
   LegisladorDetalle,
   LegisladorListItem,
   LegisladorSearchParams,
@@ -28,6 +29,7 @@ export type LegisladorRepository = {
     distrito?: string;
     personaId?: string;
   }): Promise<Mandato[]>;
-  listDistritos(): Promise<string[]>;
+  listDistritos(): Promise<Distrito[]>;
+  listAniosDeclaracion(): Promise<number[]>;
   getSeriesMacro(): Promise<SerieMacro[]>;
 };

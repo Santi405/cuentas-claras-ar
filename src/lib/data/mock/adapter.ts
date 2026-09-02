@@ -6,7 +6,9 @@ import {
   variacionInteranual,
 } from "@/lib/domain/calculos";
 import { nombreCompleto } from "@/lib/domain/formatters";
-import { normalizeSearch } from "@/lib/domain/slugs";
+import { paginate, PAGE_SIZE_MAX } from "@/lib/domain/pagination";
+import { sameDistrito, normalizeSearch, slugifyDistrito } from "@/lib/domain/slugs";
+import { sortLegisladores } from "@/lib/domain/sort";
 import type {
   Bien,
   Declaracion,
@@ -19,7 +21,6 @@ import type {
   LegisladorListItem,
   LegisladorSearchParams,
   Mandato,
-  Paginated,
   Persona,
   SerieMacro,
   SlugRedirect,
@@ -46,7 +47,6 @@ const seriesMacro = seriesJson as SerieMacro[];
 const slugRedirects = slugRedirectsJson as SlugRedirect[];
 
 const PAGE_SIZE_DEFAULT = 25;
-const PAGE_SIZE_MAX = 100;
 
 function todayIso(): string {
   return new Date().toISOString().slice(0, 10);
@@ -101,11 +101,45 @@ function toListItem(persona: Persona): LegisladorListItem {
 
 function matchesSearch(persona: Persona, q?: string): boolean {
   if (!q) return true;
-  const needle = normalizeSearch(q);
+  const needle = normalizeSearch(q).replace(/-/g, " ");
+  if (!needle) return true;
+  const distritos = mandatosDe(persona.id)
+    .map((m) => m.distrito)
+    .join(" ");
   const haystack = normalizeSearch(
-    `${persona.apellido} ${persona.nombre} ${persona.slug}`,
+    [
+      persona.apellido,
+      persona.nombre,
+      `${persona.apellido} ${persona.nombre}`,
+      `${persona.nombre} ${persona.apellido}`,
+      nombreCompleto(persona.nombre, persona.apellido),
+      persona.slug.replace(/-/g, " "),
+      distritos,
+    ].join(" "),
   );
   return haystack.includes(needle);
+}
+
+function matchesFilters(
+  item: LegisladorListItem,
+  params: LegisladorSearchParams,
+): boolean {
+  const persona = personas.find((p) => p.id === item.id);
+  if (!persona) return false;
+  if (params.cuit && persona.cuit !== params.cuit) return false;
+  if (!matchesSearch(persona, params.q)) return false;
+  if (params.camara && item.camaraActual !== params.camara) return false;
+  if (params.distrito && !sameDistrito(item.distritoActual, params.distrito)) {
+    return false;
+  }
+  if (params.estado && item.estado !== params.estado) return false;
+  if (params.anio != null) {
+    const years = elegirDeclaracionesVisibles(declaracionesDe(item.id)).map(
+      (d) => d.anioFiscal,
+    );
+    if (!years.includes(params.anio)) return false;
+  }
+  return true;
 }
 
 function buildDetalle(persona: Persona): LegisladorDetalle {
@@ -145,14 +179,6 @@ function hydrateDeclaracion(d: Declaracion): DeclaracionDetalle {
   };
 }
 
-function paginate<T>(items: T[], page: number, pageSize: number): Paginated<T> {
-  const start = (page - 1) * pageSize;
-  return {
-    data: items.slice(start, start + pageSize),
-    meta: { page, pageSize, total: items.length },
-  };
-}
-
 export const mockRepository: LegisladorRepository = {
   mode() {
     return "mock";
@@ -161,35 +187,10 @@ export const mockRepository: LegisladorRepository = {
   async searchLegisladores(params: LegisladorSearchParams) {
     const pageSize = Math.min(params.pageSize ?? PAGE_SIZE_DEFAULT, PAGE_SIZE_MAX);
     const page = Math.max(params.page ?? 1, 1);
-    let items = personas.map(toListItem).filter((item) => {
-      const persona = personas.find((p) => p.id === item.id)!;
-      if (params.cuit && persona.cuit !== params.cuit) return false;
-      if (!matchesSearch(persona, params.q)) return false;
-      if (params.camara && item.camaraActual !== params.camara) return false;
-      if (params.distrito && item.distritoActual !== params.distrito) return false;
-      if (params.estado && item.estado !== params.estado) return false;
-      if (params.anio && item.ultimoAnioDeclarado !== params.anio) {
-        const years = elegirDeclaracionesVisibles(declaracionesDe(item.id)).map(
-          (d) => d.anioFiscal,
-        );
-        if (!years.includes(params.anio)) return false;
-      }
-      return true;
-    });
-
-    const sort = params.sort ?? "nombre";
-    const dir = sort.startsWith("-") ? -1 : 1;
-    const key = sort.replace("-", "") as "nombre" | "neto" | "anio";
-    items = [...items].sort((a, b) => {
-      let cmp = 0;
-      if (key === "nombre") cmp = a.nombreCompleto.localeCompare(b.nombreCompleto, "es-AR");
-      if (key === "neto") cmp = (a.netoArs ?? -Infinity) - (b.netoArs ?? -Infinity);
-      if (key === "anio") {
-        cmp = (a.ultimoAnioDeclarado ?? 0) - (b.ultimoAnioDeclarado ?? 0);
-      }
-      return cmp * dir;
-    });
-
+    const items = sortLegisladores(
+      personas.map(toListItem).filter((item) => matchesFilters(item, params)),
+      params.sort,
+    );
     return paginate(items, page, pageSize);
   },
 
@@ -232,8 +233,14 @@ export const mockRepository: LegisladorRepository = {
   },
 
   async listDistritos() {
-    return [...new Set(mandatos.map((m) => m.distrito))].sort((a, b) =>
-      a.localeCompare(b, "es-AR"),
+    return [...new Set(mandatos.map((m) => m.distrito))]
+      .sort((a, b) => a.localeCompare(b, "es-AR"))
+      .map((nombre) => ({ nombre, slug: slugifyDistrito(nombre) }));
+  },
+
+  async listAniosDeclaracion() {
+    return [...new Set(declaraciones.map((d) => d.anioFiscal))].sort(
+      (a, b) => b - a,
     );
   },
 

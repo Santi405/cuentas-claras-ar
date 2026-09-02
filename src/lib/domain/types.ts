@@ -23,6 +23,30 @@ export const SORT_FIELDS = [
 ] as const;
 export type SortField = (typeof SORT_FIELDS)[number];
 
+export function isCamara(value: unknown): value is Camara {
+  return typeof value === "string" && (CAMARAS as readonly string[]).includes(value);
+}
+
+export function isEstadoLegislador(value: unknown): value is EstadoLegislador {
+  return (
+    typeof value === "string" &&
+    (ESTADOS_LEGISLADOR as readonly string[]).includes(value)
+  );
+}
+
+export function isSortField(value: unknown): value is SortField {
+  return typeof value === "string" && (SORT_FIELDS as readonly string[]).includes(value);
+}
+
+export function parseSortField(value: unknown): SortField {
+  return isSortField(value) ? value : "nombre";
+}
+
+export type Distrito = {
+  slug: string;
+  nombre: string;
+};
+
 export type Persona = {
   id: string;
   apellido: string;
@@ -140,6 +164,7 @@ export type Paginated<T> = {
     page: number;
     pageSize: number;
     total: number;
+    totalPages: number;
   };
 };
 

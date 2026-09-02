@@ -1,11 +1,26 @@
-export function slugifyNombre(apellido: string, nombre: string): string {
-  const base = `${apellido} ${nombre}`
+export function slugify(value: string): string {
+  return value
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
-  return base;
+}
+
+export function slugifyNombre(apellido: string, nombre: string): string {
+  return slugify(`${apellido} ${nombre}`);
+}
+
+export function slugifyDistrito(distrito: string): string {
+  return slugify(distrito);
+}
+
+export function sameDistrito(
+  nombre: string | null | undefined,
+  param: string,
+): boolean {
+  if (!nombre) return false;
+  return slugifyDistrito(nombre) === slugifyDistrito(param);
 }
 
 export function withSlugSuffix(base: string, used: Set<string>): string {
