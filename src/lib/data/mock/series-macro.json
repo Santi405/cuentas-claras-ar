@@ -1,0 +1,37 @@
+[
+  {
+    "anio": 2018,
+    "ipcIndice": 184.5,
+    "usdBcra3500Cierre": 37.7
+  },
+  {
+    "anio": 2019,
+    "ipcIndice": 283.4,
+    "usdBcra3500Cierre": 59.9
+  },
+  {
+    "anio": 2020,
+    "ipcIndice": 385.9,
+    "usdBcra3500Cierre": 84.15
+  },
+  {
+    "anio": 2021,
+    "ipcIndice": 582.5,
+    "usdBcra3500Cierre": 102.72
+  },
+  {
+    "anio": 2022,
+    "ipcIndice": 1134.6,
+    "usdBcra3500Cierre": 177.13
+  },
+  {
+    "anio": 2023,
+    "ipcIndice": 3533.2,
+    "usdBcra3500Cierre": 808.45
+  },
+  {
+    "anio": 2024,
+    "ipcIndice": 7700,
+    "usdBcra3500Cierre": 1032
+  }
+]

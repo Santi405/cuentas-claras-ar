@@ -1,0 +1,5 @@
+dj_id,cuit,anio,tipo_declaracion_jurada_id,tipo_declaracion_jurada_descripcion,rectificativa,funcionario_apellido_nombre,organismo,cargo,total_bienes_inicio,deudas_inicio,total_bienes_final,total_deudas_final
+910001,20000000028,2024,2,Anual,0,"Ejemplo, Ana",H. Camara de Diputados de la Nacion,Diputada nacional,1000000,0,1200000,0
+910002,,2024,2,Anual,0,"Ficticio, Lucia",H. Camara de Diputados de la Nacion,Diputada nacional,800000,0,900000,0
+910003,20123456789,2024,2,Anual,0,"Ministerio, Persona",Ministerio de Economia,Directora nacional,5000000,100000,5100000,90000
+910004,,2023,2,Anual,0,"Homonimo, Juan",H. Senado de la Nacion,Senador nacional,100,0,100,0

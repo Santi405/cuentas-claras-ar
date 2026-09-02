@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f4f1ea;
+  --paper-raised: #fffcf6;
+  --ink: #1c1917;
+  --ink-muted: #57534e;
+  --line: #d6d0c4;
+  --accent: #1f4d47;
+  --accent-soft: #dce8e5;
+  --warning: #8a5a12;
+  --warning-bg: #f8e7c9;
+  --focus: #1f4d47;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-warning: var(--warning);
+  --color-warning-bg: var(--warning-bg);
+  --font-sans: var(--font-ibm-sans), "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-ibm-serif), "IBM Plex Serif", ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 50;
+  background: var(--ink);
+  color: var(--paper-raised);
+  padding: 0.5rem 0.75rem;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "00000000-0000-4000-8000-000000000102",
+    "personaId": "00000000-0000-4000-8000-000000000001",
+    "sistema": "camara",
+    "valor": "demo-ejemplo-ana"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000130",
+    "personaId": "00000000-0000-4000-8000-000000000002",
+    "sistema": "camara",
+    "valor": "demo-demostracion-juan"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000168",
+    "personaId": "00000000-0000-4000-8000-000000000003",
+    "sistema": "camara",
+    "valor": "demo-ficticio-lucia"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000190",
+    "personaId": "00000000-0000-4000-8000-000000000004",
+    "sistema": "camara",
+    "valor": "demo-simulado-martin"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000228",
+    "personaId": "00000000-0000-4000-8000-000000000005",
+    "sistema": "camara",
+    "valor": "demo-prototipo-rosa"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000272",
+    "personaId": "00000000-0000-4000-8000-000000000006",
+    "sistema": "camara",
+    "valor": "demo-muestra-pedro"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000294",
+    "personaId": "00000000-0000-4000-8000-000000000007",
+    "sistema": "camara",
+    "valor": "demo-ensayo-sofia"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000330",
+    "personaId": "00000000-0000-4000-8000-000000000008",
+    "sistema": "camara",
+    "valor": "demo-ilustracion-diego"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000367",
+    "personaId": "00000000-0000-4000-8000-000000000009",
+    "sistema": "camara",
+    "valor": "demo-prueba-clara"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000399",
+    "personaId": "00000000-0000-4000-8000-000000000010",
+    "sistema": "camara",
+    "valor": "demo-modelo-hector"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000431",
+    "personaId": "00000000-0000-4000-8000-000000000011",
+    "sistema": "camara",
+    "valor": "demo-dummy-valentina"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000443",
+    "personaId": "00000000-0000-4000-8000-000000000012",
+    "sistema": "camara",
+    "valor": "demo-boceto-nicolas"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000481",
+    "personaId": "00000000-0000-4000-8000-000000000013",
+    "sistema": "camara",
+    "valor": "demo-maqueta-emilia"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000503",
+    "personaId": "00000000-0000-4000-8000-000000000014",
+    "sistema": "camara",
+    "valor": "demo-esquema-tomas"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000520",
+    "personaId": "00000000-0000-4000-8000-000000000015",
+    "sistema": "camara",
+    "valor": "demo-referencia-camila"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000558",
+    "personaId": "00000000-0000-4000-8000-000000000016",
+    "sistema": "camara",
+    "valor": "demo-borrador-andres"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000580",
+    "personaId": "00000000-0000-4000-8000-000000000017",
+    "sistema": "camara",
+    "valor": "demo-plantilla-ines"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000602",
+    "personaId": "00000000-0000-4000-8000-000000000018",
+    "sistema": "camara",
+    "valor": "demo-trazo-felipe"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000616",
+    "personaId": "00000000-0000-4000-8000-000000000019",
+    "sistema": "camara",
+    "valor": "demo-croquis-marina"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000649",
+    "personaId": "00000000-0000-4000-8000-000000000020",
+    "sistema": "camara",
+    "valor": "demo-vineta-oscar"
+  }
+]

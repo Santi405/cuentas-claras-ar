@@ -1,0 +1,182 @@
+[
+  {
+    "id": "00000000-0000-4000-8000-000000000001",
+    "apellido": "Ejemplo",
+    "nombre": "Ana",
+    "slug": "ejemplo-ana",
+    "cuit": "20000000028",
+    "fechaNacimiento": null,
+    "fotoUrl": null
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000002",
+    "apellido": "Demostración",
+    "nombre": "Juan",
+    "slug": "demostracion-juan",
+    "cuit": null,
+    "fechaNacimiento": null,
+    "fotoUrl": null
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000003",
+    "apellido": "Ficticio",
+    "nombre": "Lucía",
+    "slug": "ficticio-lucia",
+    "cuit": null,
+    "fechaNacimiento": null,
+    "fotoUrl": null
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000004",
+    "apellido": "Simulado",
+    "nombre": "Martín",
+    "slug": "simulado-martin",
+    "cuit": null,
+    "fechaNacimiento": null,
+    "fotoUrl": null
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000005",
+    "apellido": "Prototipo",
+    "nombre": "Rosa",
+    "slug": "prototipo-rosa",
+    "cuit": null,
+    "fechaNacimiento": null,
+    "fotoUrl": null
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000006",
+    "apellido": "Muestra",
+    "nombre": "Pedro",
+    "slug": "muestra-pedro",
+    "cuit": null,
+    "fechaNacimiento": null,
+    "fotoUrl": null
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000007",
+    "apellido": "Ensayo",
+    "nombre": "Sofía",
+    "slug": "ensayo-sofia",
+    "cuit": null,
+    "fechaNacimiento": null,
+    "fotoUrl": null
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000008",
+    "apellido": "Ilustración",
+    "nombre": "Diego",
+    "slug": "ilustracion-diego",
+    "cuit": null,
+    "fechaNacimiento": null,
+    "fotoUrl": null
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000009",
+    "apellido": "Prueba",
+    "nombre": "Clara",
+    "slug": "prueba-clara",
+    "cuit": null,
+    "fechaNacimiento": null,
+    "fotoUrl": null
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000010",
+    "apellido": "Modelo",
+    "nombre": "Héctor",
+    "slug": "modelo-hector",
+    "cuit": null,
+    "fechaNacimiento": null,
+    "fotoUrl": null
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000011",
+    "apellido": "Dummy",
+    "nombre": "Valentina",
+    "slug": "dummy-valentina",
+    "cuit": null,
+    "fechaNacimiento": null,
+    "fotoUrl": null
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000012",
+    "apellido": "Boceto",
+    "nombre": "Nicolás",
+    "slug": "boceto-nicolas",
+    "cuit": null,
+    "fechaNacimiento": null,
+    "fotoUrl": null
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000013",
+    "apellido": "Maqueta",
+    "nombre": "Emilia",
+    "slug": "maqueta-emilia",
+    "cuit": null,
+    "fechaNacimiento": null,
+    "fotoUrl": null
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000014",
+    "apellido": "Esquema",
+    "nombre": "Tomás",
+    "slug": "esquema-tomas",
+    "cuit": null,
+    "fechaNacimiento": null,
+    "fotoUrl": null
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000015",
+    "apellido": "Referencia",
+    "nombre": "Camila",
+    "slug": "referencia-camila",
+    "cuit": null,
+    "fechaNacimiento": null,
+    "fotoUrl": null
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000016",
+    "apellido": "Borrador",
+    "nombre": "Andrés",
+    "slug": "borrador-andres",
+    "cuit": null,
+    "fechaNacimiento": null,
+    "fotoUrl": null
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000017",
+    "apellido": "Plantilla",
+    "nombre": "Inés",
+    "slug": "plantilla-ines",
+    "cuit": null,
+    "fechaNacimiento": null,
+    "fotoUrl": null
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000018",
+    "apellido": "Trazo",
+    "nombre": "Felipe",
+    "slug": "trazo-felipe",
+    "cuit": null,
+    "fechaNacimiento": null,
+    "fotoUrl": null
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000019",
+    "apellido": "Croquis",
+    "nombre": "Marina",
+    "slug": "croquis-marina",
+    "cuit": null,
+    "fechaNacimiento": null,
+    "fotoUrl": null
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000020",
+    "apellido": "Viñeta",
+    "nombre": "Oscar",
+    "slug": "vineta-oscar",
+    "cuit": null,
+    "fechaNacimiento": null,
+    "fotoUrl": null
+  }
+]

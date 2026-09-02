@@ -1,0 +1,3656 @@
+[
+  {
+    "id": "00000000-0000-4000-8000-000000000104",
+    "declaracionId": "00000000-0000-4000-8000-000000000103",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 6336000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000105",
+    "declaracionId": "00000000-0000-4000-8000-000000000103",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2880000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000106",
+    "declaracionId": "00000000-0000-4000-8000-000000000103",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 1382400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000107",
+    "declaracionId": "00000000-0000-4000-8000-000000000103",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 921600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000109",
+    "declaracionId": "00000000-0000-4000-8000-000000000108",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 8448000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000110",
+    "declaracionId": "00000000-0000-4000-8000-000000000108",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3840000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000111",
+    "declaracionId": "00000000-0000-4000-8000-000000000108",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 1843200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000112",
+    "declaracionId": "00000000-0000-4000-8000-000000000108",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1228800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000114",
+    "declaracionId": "00000000-0000-4000-8000-000000000113",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 18480000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000115",
+    "declaracionId": "00000000-0000-4000-8000-000000000113",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 8400000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000116",
+    "declaracionId": "00000000-0000-4000-8000-000000000113",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 4032000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000117",
+    "declaracionId": "00000000-0000-4000-8000-000000000113",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2688000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000119",
+    "declaracionId": "00000000-0000-4000-8000-000000000118",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 36960000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000120",
+    "declaracionId": "00000000-0000-4000-8000-000000000118",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 16800000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000121",
+    "declaracionId": "00000000-0000-4000-8000-000000000118",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 8064000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000122",
+    "declaracionId": "00000000-0000-4000-8000-000000000118",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 5376000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000124",
+    "declaracionId": "00000000-0000-4000-8000-000000000123",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 58080000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000125",
+    "declaracionId": "00000000-0000-4000-8000-000000000123",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 26400000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000126",
+    "declaracionId": "00000000-0000-4000-8000-000000000123",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 12672000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000127",
+    "declaracionId": "00000000-0000-4000-8000-000000000123",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 8448000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000132",
+    "declaracionId": "00000000-0000-4000-8000-000000000131",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 7128000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000133",
+    "declaracionId": "00000000-0000-4000-8000-000000000131",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3240000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000134",
+    "declaracionId": "00000000-0000-4000-8000-000000000131",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 1555200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000135",
+    "declaracionId": "00000000-0000-4000-8000-000000000131",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1036800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000138",
+    "declaracionId": "00000000-0000-4000-8000-000000000137",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 9504000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000139",
+    "declaracionId": "00000000-0000-4000-8000-000000000137",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4320000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000140",
+    "declaracionId": "00000000-0000-4000-8000-000000000137",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 2073600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000141",
+    "declaracionId": "00000000-0000-4000-8000-000000000137",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1382400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000144",
+    "declaracionId": "00000000-0000-4000-8000-000000000143",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 12672000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000145",
+    "declaracionId": "00000000-0000-4000-8000-000000000143",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 5760000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000146",
+    "declaracionId": "00000000-0000-4000-8000-000000000143",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 2764800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000147",
+    "declaracionId": "00000000-0000-4000-8000-000000000143",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1843200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000150",
+    "declaracionId": "00000000-0000-4000-8000-000000000149",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 17820000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000151",
+    "declaracionId": "00000000-0000-4000-8000-000000000149",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 8100000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000152",
+    "declaracionId": "00000000-0000-4000-8000-000000000149",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 3888000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000153",
+    "declaracionId": "00000000-0000-4000-8000-000000000149",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2592000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000156",
+    "declaracionId": "00000000-0000-4000-8000-000000000155",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 27720000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000157",
+    "declaracionId": "00000000-0000-4000-8000-000000000155",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 12600000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000158",
+    "declaracionId": "00000000-0000-4000-8000-000000000155",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 6048000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000159",
+    "declaracionId": "00000000-0000-4000-8000-000000000155",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4032000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000162",
+    "declaracionId": "00000000-0000-4000-8000-000000000161",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 55440000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000163",
+    "declaracionId": "00000000-0000-4000-8000-000000000161",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 25200000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000164",
+    "declaracionId": "00000000-0000-4000-8000-000000000161",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 12096000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000165",
+    "declaracionId": "00000000-0000-4000-8000-000000000161",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 8064000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000170",
+    "declaracionId": "00000000-0000-4000-8000-000000000169",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 6779348
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000171",
+    "declaracionId": "00000000-0000-4000-8000-000000000169",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3081522
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000172",
+    "declaracionId": "00000000-0000-4000-8000-000000000169",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 1479130
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000173",
+    "declaracionId": "00000000-0000-4000-8000-000000000169",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 986087
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000175",
+    "declaracionId": "00000000-0000-4000-8000-000000000174",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 12127500
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000176",
+    "declaracionId": "00000000-0000-4000-8000-000000000174",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 5512500
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000177",
+    "declaracionId": "00000000-0000-4000-8000-000000000174",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 2646000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000178",
+    "declaracionId": "00000000-0000-4000-8000-000000000174",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1764000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000180",
+    "declaracionId": "00000000-0000-4000-8000-000000000179",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 24255000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000181",
+    "declaracionId": "00000000-0000-4000-8000-000000000179",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 11025000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000182",
+    "declaracionId": "00000000-0000-4000-8000-000000000179",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 5292000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000183",
+    "declaracionId": "00000000-0000-4000-8000-000000000179",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3528000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000185",
+    "declaracionId": "00000000-0000-4000-8000-000000000184",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 38115000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000186",
+    "declaracionId": "00000000-0000-4000-8000-000000000184",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 17325000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000187",
+    "declaracionId": "00000000-0000-4000-8000-000000000184",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 8316000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000188",
+    "declaracionId": "00000000-0000-4000-8000-000000000184",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 5544000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000192",
+    "declaracionId": "00000000-0000-4000-8000-000000000191",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 12540000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000193",
+    "declaracionId": "00000000-0000-4000-8000-000000000191",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 5700000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000194",
+    "declaracionId": "00000000-0000-4000-8000-000000000191",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 2736000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000195",
+    "declaracionId": "00000000-0000-4000-8000-000000000191",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1824000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000198",
+    "declaracionId": "00000000-0000-4000-8000-000000000197",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 16720000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000199",
+    "declaracionId": "00000000-0000-4000-8000-000000000197",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 7600000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000200",
+    "declaracionId": "00000000-0000-4000-8000-000000000197",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 3648000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000201",
+    "declaracionId": "00000000-0000-4000-8000-000000000197",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2432000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000204",
+    "declaracionId": "00000000-0000-4000-8000-000000000203",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 23512500
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000205",
+    "declaracionId": "00000000-0000-4000-8000-000000000203",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 10687500
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000206",
+    "declaracionId": "00000000-0000-4000-8000-000000000203",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 5130000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000207",
+    "declaracionId": "00000000-0000-4000-8000-000000000203",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3420000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000210",
+    "declaracionId": "00000000-0000-4000-8000-000000000209",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 36575000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000211",
+    "declaracionId": "00000000-0000-4000-8000-000000000209",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 16625000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000212",
+    "declaracionId": "00000000-0000-4000-8000-000000000209",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 7980000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000213",
+    "declaracionId": "00000000-0000-4000-8000-000000000209",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 5320000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000216",
+    "declaracionId": "00000000-0000-4000-8000-000000000215",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 73150000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000217",
+    "declaracionId": "00000000-0000-4000-8000-000000000215",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 33250000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000218",
+    "declaracionId": "00000000-0000-4000-8000-000000000215",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 15960000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000219",
+    "declaracionId": "00000000-0000-4000-8000-000000000215",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 10640000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000222",
+    "declaracionId": "00000000-0000-4000-8000-000000000221",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 114950000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000223",
+    "declaracionId": "00000000-0000-4000-8000-000000000221",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 52250000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000224",
+    "declaracionId": "00000000-0000-4000-8000-000000000221",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 25080000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000225",
+    "declaracionId": "00000000-0000-4000-8000-000000000221",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 16720000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000230",
+    "declaracionId": "00000000-0000-4000-8000-000000000229",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2178000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000231",
+    "declaracionId": "00000000-0000-4000-8000-000000000229",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 990000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000232",
+    "declaracionId": "00000000-0000-4000-8000-000000000229",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 475200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000233",
+    "declaracionId": "00000000-0000-4000-8000-000000000229",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 316800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000236",
+    "declaracionId": "00000000-0000-4000-8000-000000000235",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2904000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000237",
+    "declaracionId": "00000000-0000-4000-8000-000000000235",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1320000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000238",
+    "declaracionId": "00000000-0000-4000-8000-000000000235",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 633600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000239",
+    "declaracionId": "00000000-0000-4000-8000-000000000235",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 422400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000242",
+    "declaracionId": "00000000-0000-4000-8000-000000000241",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3872000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000243",
+    "declaracionId": "00000000-0000-4000-8000-000000000241",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1760000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000244",
+    "declaracionId": "00000000-0000-4000-8000-000000000241",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 844800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000245",
+    "declaracionId": "00000000-0000-4000-8000-000000000241",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 563200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000248",
+    "declaracionId": "00000000-0000-4000-8000-000000000247",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 5445000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000249",
+    "declaracionId": "00000000-0000-4000-8000-000000000247",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2475000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000250",
+    "declaracionId": "00000000-0000-4000-8000-000000000247",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 1188000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000251",
+    "declaracionId": "00000000-0000-4000-8000-000000000247",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 792000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000254",
+    "declaracionId": "00000000-0000-4000-8000-000000000253",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 8470000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000255",
+    "declaracionId": "00000000-0000-4000-8000-000000000253",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3850000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000256",
+    "declaracionId": "00000000-0000-4000-8000-000000000253",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 1848000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000257",
+    "declaracionId": "00000000-0000-4000-8000-000000000253",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1232000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000260",
+    "declaracionId": "00000000-0000-4000-8000-000000000259",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 16940000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000261",
+    "declaracionId": "00000000-0000-4000-8000-000000000259",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 7700000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000262",
+    "declaracionId": "00000000-0000-4000-8000-000000000259",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 3696000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000263",
+    "declaracionId": "00000000-0000-4000-8000-000000000259",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2464000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000266",
+    "declaracionId": "00000000-0000-4000-8000-000000000265",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 26620000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000267",
+    "declaracionId": "00000000-0000-4000-8000-000000000265",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 12100000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000268",
+    "declaracionId": "00000000-0000-4000-8000-000000000265",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 5808000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000269",
+    "declaracionId": "00000000-0000-4000-8000-000000000265",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3872000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000274",
+    "declaracionId": "00000000-0000-4000-8000-000000000273",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 10147500
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000275",
+    "declaracionId": "00000000-0000-4000-8000-000000000273",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4612500
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000276",
+    "declaracionId": "00000000-0000-4000-8000-000000000273",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 2214000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000277",
+    "declaracionId": "00000000-0000-4000-8000-000000000273",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1476000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000279",
+    "declaracionId": "00000000-0000-4000-8000-000000000278",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 15785000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000280",
+    "declaracionId": "00000000-0000-4000-8000-000000000278",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 7175000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000281",
+    "declaracionId": "00000000-0000-4000-8000-000000000278",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 3444000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000282",
+    "declaracionId": "00000000-0000-4000-8000-000000000278",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2296000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000284",
+    "declaracionId": "00000000-0000-4000-8000-000000000283",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 31570000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000285",
+    "declaracionId": "00000000-0000-4000-8000-000000000283",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 14350000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000286",
+    "declaracionId": "00000000-0000-4000-8000-000000000283",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 6888000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000287",
+    "declaracionId": "00000000-0000-4000-8000-000000000283",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4592000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000289",
+    "declaracionId": "00000000-0000-4000-8000-000000000288",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 49610000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000290",
+    "declaracionId": "00000000-0000-4000-8000-000000000288",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 22550000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000291",
+    "declaracionId": "00000000-0000-4000-8000-000000000288",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 10824000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000292",
+    "declaracionId": "00000000-0000-4000-8000-000000000288",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 7216000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000296",
+    "declaracionId": "00000000-0000-4000-8000-000000000295",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2428800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000297",
+    "declaracionId": "00000000-0000-4000-8000-000000000295",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1104000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000298",
+    "declaracionId": "00000000-0000-4000-8000-000000000295",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 529920
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000299",
+    "declaracionId": "00000000-0000-4000-8000-000000000295",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 353280
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000301",
+    "declaracionId": "00000000-0000-4000-8000-000000000300",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3238400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000302",
+    "declaracionId": "00000000-0000-4000-8000-000000000300",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1472000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000303",
+    "declaracionId": "00000000-0000-4000-8000-000000000300",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 706560
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000304",
+    "declaracionId": "00000000-0000-4000-8000-000000000300",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 471040
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000306",
+    "declaracionId": "00000000-0000-4000-8000-000000000305",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4554000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000307",
+    "declaracionId": "00000000-0000-4000-8000-000000000305",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2070000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000308",
+    "declaracionId": "00000000-0000-4000-8000-000000000305",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 993600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000309",
+    "declaracionId": "00000000-0000-4000-8000-000000000305",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 662400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000311",
+    "declaracionId": "00000000-0000-4000-8000-000000000310",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 7084000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000312",
+    "declaracionId": "00000000-0000-4000-8000-000000000310",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3220000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000313",
+    "declaracionId": "00000000-0000-4000-8000-000000000310",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 1545600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000314",
+    "declaracionId": "00000000-0000-4000-8000-000000000310",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1030400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000316",
+    "declaracionId": "00000000-0000-4000-8000-000000000315",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 14168000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000317",
+    "declaracionId": "00000000-0000-4000-8000-000000000315",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 6440000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000318",
+    "declaracionId": "00000000-0000-4000-8000-000000000315",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 3091200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000319",
+    "declaracionId": "00000000-0000-4000-8000-000000000315",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2060800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000321",
+    "declaracionId": "00000000-0000-4000-8000-000000000320",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (rectificativa)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 16692480
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000322",
+    "declaracionId": "00000000-0000-4000-8000-000000000320",
+    "tipo": "Depósito",
+    "descripcion": "Depósito (rectificativa de demostración)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 11128320
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000324",
+    "declaracionId": "00000000-0000-4000-8000-000000000323",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 22264000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000325",
+    "declaracionId": "00000000-0000-4000-8000-000000000323",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 10120000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000326",
+    "declaracionId": "00000000-0000-4000-8000-000000000323",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 4857600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000327",
+    "declaracionId": "00000000-0000-4000-8000-000000000323",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3238400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000332",
+    "declaracionId": "00000000-0000-4000-8000-000000000331",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 10890000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000333",
+    "declaracionId": "00000000-0000-4000-8000-000000000331",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4950000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000334",
+    "declaracionId": "00000000-0000-4000-8000-000000000331",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 2376000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000335",
+    "declaracionId": "00000000-0000-4000-8000-000000000331",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1584000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000337",
+    "declaracionId": "00000000-0000-4000-8000-000000000336",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 14520000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000338",
+    "declaracionId": "00000000-0000-4000-8000-000000000336",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 6600000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000339",
+    "declaracionId": "00000000-0000-4000-8000-000000000336",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 3168000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000340",
+    "declaracionId": "00000000-0000-4000-8000-000000000336",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2112000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000342",
+    "declaracionId": "00000000-0000-4000-8000-000000000341",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 19360000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000343",
+    "declaracionId": "00000000-0000-4000-8000-000000000341",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 8800000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000344",
+    "declaracionId": "00000000-0000-4000-8000-000000000341",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 4224000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000345",
+    "declaracionId": "00000000-0000-4000-8000-000000000341",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2816000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000347",
+    "declaracionId": "00000000-0000-4000-8000-000000000346",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 27225000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000348",
+    "declaracionId": "00000000-0000-4000-8000-000000000346",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 12375000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000349",
+    "declaracionId": "00000000-0000-4000-8000-000000000346",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 5940000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000350",
+    "declaracionId": "00000000-0000-4000-8000-000000000346",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3960000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000352",
+    "declaracionId": "00000000-0000-4000-8000-000000000351",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 42350000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000353",
+    "declaracionId": "00000000-0000-4000-8000-000000000351",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 19250000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000354",
+    "declaracionId": "00000000-0000-4000-8000-000000000351",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 9240000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000355",
+    "declaracionId": "00000000-0000-4000-8000-000000000351",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 6160000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000357",
+    "declaracionId": "00000000-0000-4000-8000-000000000356",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 84700000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000358",
+    "declaracionId": "00000000-0000-4000-8000-000000000356",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 38500000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000359",
+    "declaracionId": "00000000-0000-4000-8000-000000000356",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 18480000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000360",
+    "declaracionId": "00000000-0000-4000-8000-000000000356",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 12320000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000362",
+    "declaracionId": "00000000-0000-4000-8000-000000000361",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 133100000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000363",
+    "declaracionId": "00000000-0000-4000-8000-000000000361",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 60500000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000364",
+    "declaracionId": "00000000-0000-4000-8000-000000000361",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 29040000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000365",
+    "declaracionId": "00000000-0000-4000-8000-000000000361",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 19360000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000369",
+    "declaracionId": "00000000-0000-4000-8000-000000000368",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3669600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000370",
+    "declaracionId": "00000000-0000-4000-8000-000000000368",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1668000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000371",
+    "declaracionId": "00000000-0000-4000-8000-000000000368",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 800640
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000372",
+    "declaracionId": "00000000-0000-4000-8000-000000000368",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 533760
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000374",
+    "declaracionId": "00000000-0000-4000-8000-000000000373",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4892800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000375",
+    "declaracionId": "00000000-0000-4000-8000-000000000373",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2224000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000376",
+    "declaracionId": "00000000-0000-4000-8000-000000000373",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 1067520
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000377",
+    "declaracionId": "00000000-0000-4000-8000-000000000373",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 711680
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000379",
+    "declaracionId": "00000000-0000-4000-8000-000000000378",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 6880500
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000380",
+    "declaracionId": "00000000-0000-4000-8000-000000000378",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3127500
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000381",
+    "declaracionId": "00000000-0000-4000-8000-000000000378",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 1501200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000382",
+    "declaracionId": "00000000-0000-4000-8000-000000000378",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1000800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000384",
+    "declaracionId": "00000000-0000-4000-8000-000000000383",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 10703000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000385",
+    "declaracionId": "00000000-0000-4000-8000-000000000383",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4865000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000386",
+    "declaracionId": "00000000-0000-4000-8000-000000000383",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 2335200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000387",
+    "declaracionId": "00000000-0000-4000-8000-000000000383",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1556800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000389",
+    "declaracionId": "00000000-0000-4000-8000-000000000388",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 21406000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000390",
+    "declaracionId": "00000000-0000-4000-8000-000000000388",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 9730000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000391",
+    "declaracionId": "00000000-0000-4000-8000-000000000388",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 4670400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000392",
+    "declaracionId": "00000000-0000-4000-8000-000000000388",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3113600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000394",
+    "declaracionId": "00000000-0000-4000-8000-000000000393",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 33638000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000395",
+    "declaracionId": "00000000-0000-4000-8000-000000000393",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 15290000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000396",
+    "declaracionId": "00000000-0000-4000-8000-000000000393",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 7339200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000397",
+    "declaracionId": "00000000-0000-4000-8000-000000000393",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4892800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000401",
+    "declaracionId": "00000000-0000-4000-8000-000000000400",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1504800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000402",
+    "declaracionId": "00000000-0000-4000-8000-000000000400",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 684000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000403",
+    "declaracionId": "00000000-0000-4000-8000-000000000400",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 328320
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000404",
+    "declaracionId": "00000000-0000-4000-8000-000000000400",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 218880
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000406",
+    "declaracionId": "00000000-0000-4000-8000-000000000405",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2006400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000407",
+    "declaracionId": "00000000-0000-4000-8000-000000000405",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 912000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000408",
+    "declaracionId": "00000000-0000-4000-8000-000000000405",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 437760
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000409",
+    "declaracionId": "00000000-0000-4000-8000-000000000405",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 291840
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000411",
+    "declaracionId": "00000000-0000-4000-8000-000000000410",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2675200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000412",
+    "declaracionId": "00000000-0000-4000-8000-000000000410",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1216000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000413",
+    "declaracionId": "00000000-0000-4000-8000-000000000410",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 583680
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000414",
+    "declaracionId": "00000000-0000-4000-8000-000000000410",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 389120
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000416",
+    "declaracionId": "00000000-0000-4000-8000-000000000415",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3762000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000417",
+    "declaracionId": "00000000-0000-4000-8000-000000000415",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1710000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000418",
+    "declaracionId": "00000000-0000-4000-8000-000000000415",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 820800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000419",
+    "declaracionId": "00000000-0000-4000-8000-000000000415",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 547200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000421",
+    "declaracionId": "00000000-0000-4000-8000-000000000420",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 5852000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000422",
+    "declaracionId": "00000000-0000-4000-8000-000000000420",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2660000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000423",
+    "declaracionId": "00000000-0000-4000-8000-000000000420",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 1276800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000424",
+    "declaracionId": "00000000-0000-4000-8000-000000000420",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 851200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000426",
+    "declaracionId": "00000000-0000-4000-8000-000000000425",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 11704000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000427",
+    "declaracionId": "00000000-0000-4000-8000-000000000425",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 5320000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000428",
+    "declaracionId": "00000000-0000-4000-8000-000000000425",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 2553600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000429",
+    "declaracionId": "00000000-0000-4000-8000-000000000425",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1702400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000433",
+    "declaracionId": "00000000-0000-4000-8000-000000000432",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 6561739
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000434",
+    "declaracionId": "00000000-0000-4000-8000-000000000432",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2982609
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000435",
+    "declaracionId": "00000000-0000-4000-8000-000000000432",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 1431652
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000436",
+    "declaracionId": "00000000-0000-4000-8000-000000000432",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 954435
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000438",
+    "declaracionId": "00000000-0000-4000-8000-000000000437",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 11858000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000439",
+    "declaracionId": "00000000-0000-4000-8000-000000000437",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 5390000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000440",
+    "declaracionId": "00000000-0000-4000-8000-000000000437",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 2587200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000441",
+    "declaracionId": "00000000-0000-4000-8000-000000000437",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1724800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000445",
+    "declaracionId": "00000000-0000-4000-8000-000000000444",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 5346000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000446",
+    "declaracionId": "00000000-0000-4000-8000-000000000444",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2430000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000447",
+    "declaracionId": "00000000-0000-4000-8000-000000000444",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 1166400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000448",
+    "declaracionId": "00000000-0000-4000-8000-000000000444",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 777600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000451",
+    "declaracionId": "00000000-0000-4000-8000-000000000450",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 7128000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000452",
+    "declaracionId": "00000000-0000-4000-8000-000000000450",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3240000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000453",
+    "declaracionId": "00000000-0000-4000-8000-000000000450",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 1555200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000454",
+    "declaracionId": "00000000-0000-4000-8000-000000000450",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1036800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000457",
+    "declaracionId": "00000000-0000-4000-8000-000000000456",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 9504000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000458",
+    "declaracionId": "00000000-0000-4000-8000-000000000456",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4320000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000459",
+    "declaracionId": "00000000-0000-4000-8000-000000000456",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 2073600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000460",
+    "declaracionId": "00000000-0000-4000-8000-000000000456",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1382400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000463",
+    "declaracionId": "00000000-0000-4000-8000-000000000462",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 13365000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000464",
+    "declaracionId": "00000000-0000-4000-8000-000000000462",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 6075000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000465",
+    "declaracionId": "00000000-0000-4000-8000-000000000462",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 2916000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000466",
+    "declaracionId": "00000000-0000-4000-8000-000000000462",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1944000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000469",
+    "declaracionId": "00000000-0000-4000-8000-000000000468",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 20790000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000470",
+    "declaracionId": "00000000-0000-4000-8000-000000000468",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 9450000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000471",
+    "declaracionId": "00000000-0000-4000-8000-000000000468",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 4536000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000472",
+    "declaracionId": "00000000-0000-4000-8000-000000000468",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3024000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000475",
+    "declaracionId": "00000000-0000-4000-8000-000000000474",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 41580000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000476",
+    "declaracionId": "00000000-0000-4000-8000-000000000474",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 18900000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000477",
+    "declaracionId": "00000000-0000-4000-8000-000000000474",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 9072000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000478",
+    "declaracionId": "00000000-0000-4000-8000-000000000474",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 6048000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000483",
+    "declaracionId": "00000000-0000-4000-8000-000000000482",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 9058500
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000484",
+    "declaracionId": "00000000-0000-4000-8000-000000000482",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4117500
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000485",
+    "declaracionId": "00000000-0000-4000-8000-000000000482",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 1976400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000486",
+    "declaracionId": "00000000-0000-4000-8000-000000000482",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1317600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000488",
+    "declaracionId": "00000000-0000-4000-8000-000000000487",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 14091000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000489",
+    "declaracionId": "00000000-0000-4000-8000-000000000487",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 6405000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000490",
+    "declaracionId": "00000000-0000-4000-8000-000000000487",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 3074400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000491",
+    "declaracionId": "00000000-0000-4000-8000-000000000487",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2049600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000493",
+    "declaracionId": "00000000-0000-4000-8000-000000000492",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 28182000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000494",
+    "declaracionId": "00000000-0000-4000-8000-000000000492",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 12810000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000495",
+    "declaracionId": "00000000-0000-4000-8000-000000000492",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 6148800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000496",
+    "declaracionId": "00000000-0000-4000-8000-000000000492",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4099200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000498",
+    "declaracionId": "00000000-0000-4000-8000-000000000497",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 44286000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000499",
+    "declaracionId": "00000000-0000-4000-8000-000000000497",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 20130000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000500",
+    "declaracionId": "00000000-0000-4000-8000-000000000497",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 9662400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000501",
+    "declaracionId": "00000000-0000-4000-8000-000000000497",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 6441600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000505",
+    "declaracionId": "00000000-0000-4000-8000-000000000504",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 8316000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000506",
+    "declaracionId": "00000000-0000-4000-8000-000000000504",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3780000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000507",
+    "declaracionId": "00000000-0000-4000-8000-000000000504",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 1814400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000508",
+    "declaracionId": "00000000-0000-4000-8000-000000000504",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1209600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000510",
+    "declaracionId": "00000000-0000-4000-8000-000000000509",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 15592500
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000511",
+    "declaracionId": "00000000-0000-4000-8000-000000000509",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 7087500
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000512",
+    "declaracionId": "00000000-0000-4000-8000-000000000509",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 3402000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000513",
+    "declaracionId": "00000000-0000-4000-8000-000000000509",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2268000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000515",
+    "declaracionId": "00000000-0000-4000-8000-000000000514",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 76230000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000516",
+    "declaracionId": "00000000-0000-4000-8000-000000000514",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 34650000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000517",
+    "declaracionId": "00000000-0000-4000-8000-000000000514",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 16632000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000518",
+    "declaracionId": "00000000-0000-4000-8000-000000000514",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 11088000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000522",
+    "declaracionId": "00000000-0000-4000-8000-000000000521",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 11682000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000523",
+    "declaracionId": "00000000-0000-4000-8000-000000000521",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 5310000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000524",
+    "declaracionId": "00000000-0000-4000-8000-000000000521",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 2548800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000525",
+    "declaracionId": "00000000-0000-4000-8000-000000000521",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1699200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000528",
+    "declaracionId": "00000000-0000-4000-8000-000000000527",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 15576000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000529",
+    "declaracionId": "00000000-0000-4000-8000-000000000527",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 7080000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000530",
+    "declaracionId": "00000000-0000-4000-8000-000000000527",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 3398400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000531",
+    "declaracionId": "00000000-0000-4000-8000-000000000527",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2265600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000534",
+    "declaracionId": "00000000-0000-4000-8000-000000000533",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 21903750
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000535",
+    "declaracionId": "00000000-0000-4000-8000-000000000533",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 9956250
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000536",
+    "declaracionId": "00000000-0000-4000-8000-000000000533",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 4779000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000537",
+    "declaracionId": "00000000-0000-4000-8000-000000000533",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3186000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000540",
+    "declaracionId": "00000000-0000-4000-8000-000000000539",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 34072500
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000541",
+    "declaracionId": "00000000-0000-4000-8000-000000000539",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 15487500
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000542",
+    "declaracionId": "00000000-0000-4000-8000-000000000539",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 7434000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000543",
+    "declaracionId": "00000000-0000-4000-8000-000000000539",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4956000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000546",
+    "declaracionId": "00000000-0000-4000-8000-000000000545",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 68145000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000547",
+    "declaracionId": "00000000-0000-4000-8000-000000000545",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 30975000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000548",
+    "declaracionId": "00000000-0000-4000-8000-000000000545",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 14868000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000549",
+    "declaracionId": "00000000-0000-4000-8000-000000000545",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 9912000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000552",
+    "declaracionId": "00000000-0000-4000-8000-000000000551",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 107085000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000553",
+    "declaracionId": "00000000-0000-4000-8000-000000000551",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 48675000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000554",
+    "declaracionId": "00000000-0000-4000-8000-000000000551",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 23364000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000555",
+    "declaracionId": "00000000-0000-4000-8000-000000000551",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 15576000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000560",
+    "declaracionId": "00000000-0000-4000-8000-000000000559",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3069000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000561",
+    "declaracionId": "00000000-0000-4000-8000-000000000559",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1395000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000562",
+    "declaracionId": "00000000-0000-4000-8000-000000000559",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 669600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000563",
+    "declaracionId": "00000000-0000-4000-8000-000000000559",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 446400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000565",
+    "declaracionId": "00000000-0000-4000-8000-000000000564",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4774000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000566",
+    "declaracionId": "00000000-0000-4000-8000-000000000564",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2170000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000567",
+    "declaracionId": "00000000-0000-4000-8000-000000000564",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 1041600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000568",
+    "declaracionId": "00000000-0000-4000-8000-000000000564",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 694400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000570",
+    "declaracionId": "00000000-0000-4000-8000-000000000569",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 9548000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000571",
+    "declaracionId": "00000000-0000-4000-8000-000000000569",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4340000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000572",
+    "declaracionId": "00000000-0000-4000-8000-000000000569",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 2083200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000573",
+    "declaracionId": "00000000-0000-4000-8000-000000000569",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1388800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000575",
+    "declaracionId": "00000000-0000-4000-8000-000000000574",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 15004000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000576",
+    "declaracionId": "00000000-0000-4000-8000-000000000574",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 6820000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000577",
+    "declaracionId": "00000000-0000-4000-8000-000000000574",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 3273600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000578",
+    "declaracionId": "00000000-0000-4000-8000-000000000574",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2182400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000582",
+    "declaracionId": "00000000-0000-4000-8000-000000000581",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1970100
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000583",
+    "declaracionId": "00000000-0000-4000-8000-000000000581",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 895500
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000584",
+    "declaracionId": "00000000-0000-4000-8000-000000000581",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 429840
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000585",
+    "declaracionId": "00000000-0000-4000-8000-000000000581",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 286560
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000587",
+    "declaracionId": "00000000-0000-4000-8000-000000000586",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2626800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000588",
+    "declaracionId": "00000000-0000-4000-8000-000000000586",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1194000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000589",
+    "declaracionId": "00000000-0000-4000-8000-000000000586",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 573120
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000590",
+    "declaracionId": "00000000-0000-4000-8000-000000000586",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 382080
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000592",
+    "declaracionId": "00000000-0000-4000-8000-000000000591",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3502400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000593",
+    "declaracionId": "00000000-0000-4000-8000-000000000591",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1592000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000594",
+    "declaracionId": "00000000-0000-4000-8000-000000000591",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 764160
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000595",
+    "declaracionId": "00000000-0000-4000-8000-000000000591",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 509440
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000597",
+    "declaracionId": "00000000-0000-4000-8000-000000000596",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4925250
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000598",
+    "declaracionId": "00000000-0000-4000-8000-000000000596",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2238750
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000599",
+    "declaracionId": "00000000-0000-4000-8000-000000000596",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 1074600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000600",
+    "declaracionId": "00000000-0000-4000-8000-000000000596",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 716400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000604",
+    "declaracionId": "00000000-0000-4000-8000-000000000603",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 93739131
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000605",
+    "declaracionId": "00000000-0000-4000-8000-000000000603",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 42608696
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000606",
+    "declaracionId": "00000000-0000-4000-8000-000000000603",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 20452174
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000607",
+    "declaracionId": "00000000-0000-4000-8000-000000000603",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 13634782
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000610",
+    "declaracionId": "00000000-0000-4000-8000-000000000609",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 169400000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000611",
+    "declaracionId": "00000000-0000-4000-8000-000000000609",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 77000000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000612",
+    "declaracionId": "00000000-0000-4000-8000-000000000609",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 36960000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000613",
+    "declaracionId": "00000000-0000-4000-8000-000000000609",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 24640000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000618",
+    "declaracionId": "00000000-0000-4000-8000-000000000617",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3313200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000619",
+    "declaracionId": "00000000-0000-4000-8000-000000000617",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1506000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000620",
+    "declaracionId": "00000000-0000-4000-8000-000000000617",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 722880
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000621",
+    "declaracionId": "00000000-0000-4000-8000-000000000617",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 481920
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000623",
+    "declaracionId": "00000000-0000-4000-8000-000000000622",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4417600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000624",
+    "declaracionId": "00000000-0000-4000-8000-000000000622",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2008000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000625",
+    "declaracionId": "00000000-0000-4000-8000-000000000622",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 963840
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000626",
+    "declaracionId": "00000000-0000-4000-8000-000000000622",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 642560
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000628",
+    "declaracionId": "00000000-0000-4000-8000-000000000627",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 6212250
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000629",
+    "declaracionId": "00000000-0000-4000-8000-000000000627",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2823750
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000630",
+    "declaracionId": "00000000-0000-4000-8000-000000000627",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 1355400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000631",
+    "declaracionId": "00000000-0000-4000-8000-000000000627",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 903600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000633",
+    "declaracionId": "00000000-0000-4000-8000-000000000632",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 9663500
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000634",
+    "declaracionId": "00000000-0000-4000-8000-000000000632",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4392500
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000635",
+    "declaracionId": "00000000-0000-4000-8000-000000000632",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 2108400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000636",
+    "declaracionId": "00000000-0000-4000-8000-000000000632",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1405600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000638",
+    "declaracionId": "00000000-0000-4000-8000-000000000637",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 19327000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000639",
+    "declaracionId": "00000000-0000-4000-8000-000000000637",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 8785000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000640",
+    "declaracionId": "00000000-0000-4000-8000-000000000637",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 4216800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000641",
+    "declaracionId": "00000000-0000-4000-8000-000000000637",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2811200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000643",
+    "declaracionId": "00000000-0000-4000-8000-000000000642",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 30371000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000644",
+    "declaracionId": "00000000-0000-4000-8000-000000000642",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 13805000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000645",
+    "declaracionId": "00000000-0000-4000-8000-000000000642",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 6626400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000646",
+    "declaracionId": "00000000-0000-4000-8000-000000000642",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4417600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000651",
+    "declaracionId": "00000000-0000-4000-8000-000000000650",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 7692300
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000652",
+    "declaracionId": "00000000-0000-4000-8000-000000000650",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 3496500
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000653",
+    "declaracionId": "00000000-0000-4000-8000-000000000650",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 1678320
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000654",
+    "declaracionId": "00000000-0000-4000-8000-000000000650",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1118880
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000656",
+    "declaracionId": "00000000-0000-4000-8000-000000000655",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 10256400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000657",
+    "declaracionId": "00000000-0000-4000-8000-000000000655",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4662000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000658",
+    "declaracionId": "00000000-0000-4000-8000-000000000655",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 2237760
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000659",
+    "declaracionId": "00000000-0000-4000-8000-000000000655",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1491840
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000661",
+    "declaracionId": "00000000-0000-4000-8000-000000000660",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 13675200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000662",
+    "declaracionId": "00000000-0000-4000-8000-000000000660",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 6216000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000663",
+    "declaracionId": "00000000-0000-4000-8000-000000000660",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 2983680
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000664",
+    "declaracionId": "00000000-0000-4000-8000-000000000660",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 1989120
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000666",
+    "declaracionId": "00000000-0000-4000-8000-000000000665",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 19230750
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000667",
+    "declaracionId": "00000000-0000-4000-8000-000000000665",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 8741250
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000668",
+    "declaracionId": "00000000-0000-4000-8000-000000000665",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 4195800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000669",
+    "declaracionId": "00000000-0000-4000-8000-000000000665",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 2797200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000671",
+    "declaracionId": "00000000-0000-4000-8000-000000000670",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 29914500
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000672",
+    "declaracionId": "00000000-0000-4000-8000-000000000670",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 13597500
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000673",
+    "declaracionId": "00000000-0000-4000-8000-000000000670",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 6526800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000674",
+    "declaracionId": "00000000-0000-4000-8000-000000000670",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 4351200
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000676",
+    "declaracionId": "00000000-0000-4000-8000-000000000675",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 59829000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000677",
+    "declaracionId": "00000000-0000-4000-8000-000000000675",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 27195000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000678",
+    "declaracionId": "00000000-0000-4000-8000-000000000675",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 13053600
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000679",
+    "declaracionId": "00000000-0000-4000-8000-000000000675",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 8702400
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000681",
+    "declaracionId": "00000000-0000-4000-8000-000000000680",
+    "tipo": "Inmueble",
+    "descripcion": "Departamento de demostración (valuación fiscal declarada)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 94017000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000682",
+    "declaracionId": "00000000-0000-4000-8000-000000000680",
+    "tipo": "Depósito",
+    "descripcion": "Depósito en entidad financiera de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 42735000
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000683",
+    "declaracionId": "00000000-0000-4000-8000-000000000680",
+    "tipo": "Rodado",
+    "descripcion": "Automóvil de demostración (valuación fiscal)",
+    "origenFondos": "Haberes",
+    "titularidadPct": 50,
+    "importeArs": 20512800
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000684",
+    "declaracionId": "00000000-0000-4000-8000-000000000680",
+    "tipo": "Otros bienes",
+    "descripcion": "Otros bienes muebles de demostración",
+    "origenFondos": "Haberes",
+    "titularidadPct": 100,
+    "importeArs": 13675200
+  }
+]
