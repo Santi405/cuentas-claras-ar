@@ -55,9 +55,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const legislador = await getLegisladorBySlug(slug);
-  if (!legislador) {
-    return { title: "No encontrado" };
-  }
+  if (!legislador) notFound();
   const title = legislador.persona.nombreCompleto;
   const description = `Declaraciones juradas patrimoniales de ${title}. Valores declarados, no de mercado.`;
   return {
