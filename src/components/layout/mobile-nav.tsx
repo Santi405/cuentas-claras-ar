@@ -34,9 +34,13 @@ export function MobileNav() {
         {open ? "Cerrar menú" : "Menú"}
       </button>
       {open ? (
-        <div id={menuId} className="mt-3 border-t border-line pt-3">
+        <nav
+          id={menuId}
+          aria-label="Principal"
+          className="mt-3 border-t border-line pt-3"
+        >
           <NavLinks className="flex flex-col gap-3" onNavigate={() => setOpen(false)} />
-        </div>
+        </nav>
       ) : null}
     </div>
   );

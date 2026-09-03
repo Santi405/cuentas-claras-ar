@@ -20,7 +20,7 @@ export default function OpenGraphImage() {
         }}
       >
         <div style={{ fontSize: 28, letterSpacing: 4, textTransform: "uppercase" }}>
-          Congreso de la Nación
+          Portal cívico de consulta
         </div>
         <div style={{ fontSize: 72, marginTop: 16, fontWeight: 600 }}>{SITE_NAME}</div>
         <div style={{ fontSize: 28, marginTop: 24, color: "#57534e" }}>

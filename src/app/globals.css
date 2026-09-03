@@ -35,6 +35,15 @@ html {
   html {
     scroll-behavior: auto;
   }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 body {
@@ -61,4 +70,13 @@ body {
 .skip-link:focus,
 .skip-link:focus-visible {
   top: 1rem;
+}
+
+.editorial-article :is(h2, h3) {
+  scroll-margin-top: 1.25rem;
+}
+
+#contenido:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
 }

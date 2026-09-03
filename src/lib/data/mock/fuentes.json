@@ -2,7 +2,7 @@
   {
     "id": "00000000-0000-4000-8000-000000009001",
     "nombre": "Dataset de demostración (ficticio)",
-    "url": "https://datos.jus.gob.ar/dataset/declaraciones-juradas-patrimoniales-integrales",
+    "url": null,
     "snapshotDate": "2024-12-22",
     "archivo": "mock-djpi-demostracion-2024.csv",
     "archivoHash": "e8fe70c77cd6597349d0b98258cb448ac85d6795d26b46f9c255dbee8440ea88"

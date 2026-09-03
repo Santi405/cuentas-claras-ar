@@ -21,7 +21,7 @@ const archivoHash = createHash("sha256").update(archivo).digest("hex");
 const fuente = {
   id: FUENTE_ID,
   nombre: "Dataset de demostración (ficticio)",
-  url: "https://datos.jus.gob.ar/dataset/declaraciones-juradas-patrimoniales-integrales",
+  url: null,
   snapshotDate: "2024-12-22",
   archivo,
   archivoHash,

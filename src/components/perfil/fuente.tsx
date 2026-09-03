@@ -8,7 +8,7 @@ export function FuenteDeclaracion({
 }) {
   return (
     <section className="border border-line bg-paper-raised p-4 text-sm">
-      <h2 className="font-serif text-lg">Fuente</h2>
+      <h3 className="font-serif text-lg">Procedencia</h3>
       <p className="mt-2 text-ink-muted">
         {declaracion.fuente.nombre}. Snapshot {declaracion.fuente.snapshotDate}.
         Archivo {declaracion.fuente.archivo}.
@@ -59,7 +59,7 @@ export function VistaToggle({
           <Link
             key={o.id}
             href={`/legisladores/${slug}?anio=${anio}&vista=${o.id}`}
-            aria-current={vista === o.id ? "page" : undefined}
+            aria-current={vista === o.id ? "true" : undefined}
             className={
               vista === o.id
                 ? "inline-flex min-h-11 items-center bg-ink px-3 py-2 text-sm text-paper-raised"
