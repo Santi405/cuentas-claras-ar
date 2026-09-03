@@ -19,16 +19,17 @@ import {
 } from "@/lib/domain/explorador";
 import type { LegisladorListItem, Paginated } from "@/lib/domain/types";
 import { StatusNotice } from "@/components/ui/status-notice";
+import { SITE_NAME } from "@/lib/site";
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 
 export const metadata: Metadata = {
-  title: "Explorador de legisladores",
+  title: { absolute: `Explorador de legisladores | ${SITE_NAME}` },
   description:
     "Buscá y filtrá declaraciones juradas patrimoniales de diputados y senadores nacionales. Valores fiscales declarados, no de mercado.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Explorador de legisladores",
+    title: `Explorador de legisladores | ${SITE_NAME}`,
     description:
       "Buscá y filtrá declaraciones juradas patrimoniales de diputados y senadores nacionales. Valores fiscales declarados, no de mercado.",
     url: "/",
