@@ -53,7 +53,12 @@ export async function generateMetadata({
   const redirectTo = await resolveSlugRedirect(slug);
   if (redirectTo) permanentRedirect(`/legisladores/${redirectTo}`);
   const legislador = await getLegisladorBySlug(slug);
-  if (!legislador) notFound();
+  if (!legislador) {
+    return {
+      title: { absolute: `Legislador no encontrado · ${SITE_NAME}` },
+      robots: { index: false, follow: false },
+    };
+  }
   const title = legislador.persona.nombreCompleto;
   const description = `Declaraciones juradas patrimoniales de ${title}. Valores declarados en pesos del año fiscal, no de mercado.`;
   const canonical = `/legisladores/${slug}`;
