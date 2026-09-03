@@ -3,7 +3,9 @@ import { isVistaMonto, type VistaMonto } from "./types";
 export type PerfilQuery = {
   anioParam: string | undefined;
   anioSolicitado: number | undefined;
+  vistaParam: string | undefined;
   vista: VistaMonto;
+  vistaInvalida: boolean;
 };
 
 function first(
@@ -24,10 +26,13 @@ export function parsePerfilQuery(
   const anioSolicitado =
     parsed !== undefined && Number.isInteger(parsed) ? parsed : undefined;
   const vistaRaw = first(sp, "vista");
+  const vistaValida = isVistaMonto(vistaRaw);
   return {
     anioParam,
     anioSolicitado,
-    vista: isVistaMonto(vistaRaw) ? vistaRaw : "nominal",
+    vistaParam: vistaRaw,
+    vista: vistaValida ? vistaRaw : "nominal",
+    vistaInvalida: vistaRaw !== undefined && !vistaValida,
   };
 }
 

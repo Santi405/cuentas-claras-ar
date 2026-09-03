@@ -1,26 +1,34 @@
 # Metodología — DDJJ Congreso
 
-Este archivo documenta los criterios del producto. La versión pública está en `/metodologia`.
+Criterios internos del producto. La versión pública está en `/metodologia`.
+
+## Qué es
+
+Herramienta de consulta. No reemplaza fuentes oficiales, no investiga, no acusa y no trata un cambio declarado como ilícito.
+
+## Qué muestra / qué no
+
+Personas con mandato nacional, declaraciones disponibles, bienes, deudas, neto derivado, evolución comparable, mandatos.
+
+No: grupo familiar, datos reservados, scraping no autorizado, inferencias de mercado, acusaciones, perfiles generados por IA.
+
+## Montos
+
+Valores declarados, no riqueza real ni precio de mercado. Inmuebles y vehículos pueden usar criterio fiscal. Neto = bienes − deudas del mismo momento (cierre en anuales; inicio en iniciales).
+
+## Evolución
+
+Año faltante ≠ cero. No interpolar. Variación solo entre anuales consecutivas. Una rectificativa no duplica el año; se muestra la versión vigente.
+
+## Vistas
+
+- ARS nominal (predeterminada): pesos del período fiscal.
+- IPC y USD: transformaciones analíticas. En mock, series demostrativas.
 
 ## Fuentes
 
-- DJPI (OA / datos.jus.gob.ar): montos, bienes, deudas, dj_id, CUIT.
-- Cámaras: mandatos, distrito, bloque.
-- CNE: listas (fase posterior).
-
-## Cálculos
-
-- Neto = bienes − deudas del mismo momento.
-- Variación interanual solo entre anuales consecutivas.
-- Default: ARS nominal. IPC y USD son vistas opcionales.
-- USD: BCRA Com. A 3500 al 31/12. Nunca dólar paralelo.
-
-## Exclusiones
-
-- Grupo familiar / anexo reservado.
-- Rankings de enriquecimiento.
+Conceptuales: patrimonial (DJPI oficial, futura), parlamentaria (mandatos), macro (solo para conversiones). El mock no atribuye registros ficticios a un organismo.
 
 ## Identificadores
 
-- Interno: UUID.
-- Público: slug. CUIT nunca en la URL.
+UUID interno, slug en la URL, CUIT solo para matching. Ver `/datos`.

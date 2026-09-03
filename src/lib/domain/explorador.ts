@@ -1,6 +1,7 @@
 import {
   isCamara,
   isEstadoLegislador,
+  isSortField,
   parseSortField,
   type Camara,
   type EstadoLegislador,
@@ -125,6 +126,49 @@ export function explorerHref(query: {
   }
   const qs = usp.toString();
   return qs ? `/?${qs}` : "/";
+}
+
+const IGNORED_PARAM_LABELS: Record<string, string> = {
+  camara: "cámara",
+  estado: "estado",
+  anio: "año",
+  sort: "orden",
+  page: "página",
+  page_size: "tamaño de página",
+  pageSize: "tamaño de página",
+};
+
+export function ignoredExplorerParamLabels(sp: SearchParamsInput): string[] {
+  const labels: string[] = [];
+  const camara = first(sp, "camara");
+  if (camara && camara !== "todos" && !isCamara(camara)) {
+    labels.push(IGNORED_PARAM_LABELS.camara);
+  }
+  const estado = first(sp, "estado");
+  if (estado && estado !== "todos" && !isEstadoLegislador(estado)) {
+    labels.push(IGNORED_PARAM_LABELS.estado);
+  }
+  const anio = first(sp, "anio");
+  if (anio && parseAnio(anio) === undefined) {
+    labels.push(IGNORED_PARAM_LABELS.anio);
+  }
+  const sort = first(sp, "sort");
+  if (sort && !isSortField(sort)) {
+    labels.push(IGNORED_PARAM_LABELS.sort);
+  }
+  const page = first(sp, "page");
+  if (page) {
+    const n = Number(page);
+    if (!Number.isInteger(n) || n < 1) labels.push(IGNORED_PARAM_LABELS.page);
+  }
+  const pageSize = first(sp, "page_size") ?? first(sp, "pageSize");
+  if (pageSize) {
+    const n = Number(pageSize);
+    if (!Number.isInteger(n) || n < 1) {
+      labels.push(IGNORED_PARAM_LABELS.page_size);
+    }
+  }
+  return labels;
 }
 
 export function hasActiveFilters(query: ExplorerQuery): boolean {

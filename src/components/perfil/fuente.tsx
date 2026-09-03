@@ -86,7 +86,7 @@ export function VistaToggle({
           <Link
             key={o.id}
             href={perfilHref(slug, anio, o.id)}
-            aria-current={vista === o.id ? "page" : undefined}
+            aria-current={vista === o.id ? "true" : undefined}
             className={
               vista === o.id
                 ? "inline-flex min-h-11 items-center bg-ink px-3 py-2 text-sm text-paper-raised"

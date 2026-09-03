@@ -28,7 +28,6 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
-  alternates: { canonical: "/" },
   openGraph: {
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
@@ -63,7 +62,7 @@ export default function RootLayout({
         </a>
         <DemoBanner />
         <SiteHeader />
-        <main id="contenido" className="flex-1">
+        <main id="contenido" tabIndex={-1} className="flex-1">
           {children}
         </main>
         <SiteFooter />
