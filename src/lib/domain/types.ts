@@ -13,6 +13,10 @@ export type PeriodoDeclaracion = (typeof PERIODOS_DECLARACION)[number];
 export const VISTAS_MONTO = ["nominal", "ipc", "usd"] as const;
 export type VistaMonto = (typeof VISTAS_MONTO)[number];
 
+export function isVistaMonto(value: unknown): value is VistaMonto {
+  return typeof value === "string" && (VISTAS_MONTO as readonly string[]).includes(value);
+}
+
 export const SORT_FIELDS = [
   "nombre",
   "-nombre",
@@ -183,9 +187,13 @@ export type DeclaracionResumen = {
 
 export type EvolucionAnual = {
   anioFiscal: number;
+  bienes: number | null;
+  deudas: number | null;
   neto: number | null;
   comparable: boolean;
   faltante: boolean;
+  rectificativa: number;
+  tipo: TipoDeclaracion | null;
 };
 
 export type LegisladorDetalle = {
