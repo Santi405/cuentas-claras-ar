@@ -89,9 +89,13 @@ export function construirEvolucion(
     const row = byYear.get(anio);
     rows.push({
       anioFiscal: anio,
+      bienes: row?.bienes ?? null,
+      deudas: row?.deudas ?? null,
       neto: row?.neto ?? null,
       comparable: row ? esComparableAnual(row) : false,
       faltante: !row,
+      rectificativa: row?.rectificativa ?? 0,
+      tipo: row?.tipo ?? null,
     });
   }
   return rows;

@@ -14,10 +14,8 @@ import {
   listAllLegisladorSlugs,
   resolveSlugRedirect,
 } from "@/lib/data/cached";
-import {
-  convertirMonto,
-  IPC_ANIO_BASE,
-} from "@/lib/domain/calculos";
+import { isMockMode } from "@/lib/data/mode";
+import { convertirMonto, IPC_ANIO_BASE } from "@/lib/domain/calculos";
 import {
   formatArs,
   formatCamara,
@@ -26,12 +24,9 @@ import {
   formatTipoDeclaracion,
   formatUsdApprox,
 } from "@/lib/domain/formatters";
-import { VISTAS_MONTO, type VistaMonto } from "@/lib/domain/types";
+import { parsePerfilQuery, resolverAnioDeclaracion } from "@/lib/domain/perfil";
+import type { VistaMonto } from "@/lib/domain/types";
 import { SITE_NAME } from "@/lib/site";
-
-function isVista(v: string | undefined): v is VistaMonto {
-  return !!v && (VISTAS_MONTO as readonly string[]).includes(v);
-}
 
 function formatVista(
   monto: number,
@@ -66,7 +61,7 @@ export async function generateMetadata({
     };
   }
   const title = legislador.persona.nombreCompleto;
-  const description = `Declaraciones juradas patrimoniales de ${title}. Valores declarados, no de mercado.`;
+  const description = `Declaraciones juradas patrimoniales de ${title}. Valores declarados en pesos del año fiscal, no de mercado.`;
   const canonical = `/legisladores/${slug}`;
   return {
     title: { absolute: `${title} · ${SITE_NAME}` },
@@ -90,11 +85,7 @@ export default async function PerfilPage({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const { slug } = await params;
-  const sp = await searchParams;
-  const one = (k: string) => {
-    const v = sp[k];
-    return Array.isArray(v) ? v[0] : v;
-  };
+  const query = parsePerfilQuery(await searchParams);
 
   const redirectTo = await resolveSlugRedirect(slug);
   if (redirectTo) permanentRedirect(`/legisladores/${redirectTo}`);
@@ -103,24 +94,29 @@ export default async function PerfilPage({
   if (!legislador) notFound();
 
   const anios = legislador.declaraciones.map((d) => d.anioFiscal);
-  const anioParamRaw = one("anio");
-  const anioParam = Number(anioParamRaw);
-  const anioIgnorado =
-    Boolean(anioParamRaw) && !anios.includes(anioParam);
-  const anio = anios.includes(anioParam) ? anioParam : (anios.at(-1) ?? null);
-  const vistaQuery = one("vista");
-  const vistaIgnorada = Boolean(vistaQuery) && !isVista(vistaQuery);
-  const vista: VistaMonto = isVista(vistaQuery) ? vistaQuery : "nominal";
+  const { anio, anioInvalido } = resolverAnioDeclaracion(
+    anios,
+    query.anioSolicitado,
+    query.anioParam !== undefined,
+  );
+  const vista = query.vista;
   const series = await getSeriesMacro();
   const declaracion =
     anio !== null ? await getDeclaracion(legislador.persona.id, anio) : null;
   const mandatoActual = [...legislador.mandatos]
     .reverse()
     .find((m) => m.fin === null || m.fin >= new Date().toISOString().slice(0, 10));
+  const mandatoMostrado = mandatoActual ?? legislador.mandatos.at(-1) ?? null;
+  const mock = isMockMode();
 
   return (
     <article className="mx-auto max-w-6xl px-4 py-10">
-      <header className="flex flex-col gap-4 border-b border-line pb-8 md:flex-row md:items-center">
+      <p className="text-sm">
+        <Link href="/" className="text-accent underline underline-offset-2">
+          Volver al explorador
+        </Link>
+      </p>
+      <header className="mt-6 flex flex-col gap-4 border-b border-line pb-8 md:flex-row md:items-start">
         <AvatarIniciales
           nombre={legislador.persona.nombre}
           apellido={legislador.persona.apellido}
@@ -129,12 +125,23 @@ export default async function PerfilPage({
           <h1 className="font-serif text-4xl tracking-tight">
             {legislador.persona.nombreCompleto}
           </h1>
-          <p className="mt-2 text-ink-muted">
-            {formatEstado(legislador.estado)}
-            {mandatoActual
-              ? ` · ${formatCamara(mandatoActual.camara)} · ${mandatoActual.distrito}`
+          <p className="mt-2 text-lg">
+            {mandatoMostrado
+              ? formatCamara(mandatoMostrado.camara)
+              : "Legislador/a nacional"}
+          </p>
+          <p className="mt-1 text-ink-muted">
+            {mandatoMostrado
+              ? `${mandatoMostrado.distrito} · `
               : ""}
-            {mandatoActual?.bloque ? ` · ${mandatoActual.bloque}` : ""}
+            {formatEstado(legislador.estado)}
+            {mandatoMostrado?.bloque
+              ? ` · ${mandatoMostrado.bloque}`
+              : " · Bloque: No disponible"}
+          </p>
+          <p className="mt-3 max-w-2xl text-ink-muted">
+            Qué declaró esta persona y cómo evolucionaron las declaraciones
+            disponibles.
           </p>
           {legislador.cuit ? (
             <p className="mt-2 text-sm text-ink-muted">
@@ -145,40 +152,56 @@ export default async function PerfilPage({
         </div>
       </header>
 
-      <section className="mt-8 grid gap-10 md:grid-cols-3">
-        <div className="md:col-span-2">
-          <h2 className="font-serif text-2xl">Mandatos</h2>
-          <div className="mt-4">
-            <TimelineMandatos mandatos={legislador.mandatos} />
-          </div>
+      <section className="mt-10">
+        <h2 className="font-serif text-2xl">Trayectoria parlamentaria</h2>
+        <div className="mt-4">
+          <TimelineMandatos mandatos={legislador.mandatos} />
         </div>
-        <div>
-          <h2 className="font-serif text-2xl">Evolución declarada</h2>
-          <div className="mt-4">
-            <TablaEvolucion evolucion={legislador.evolucion} />
-          </div>
+      </section>
+
+      <section className="mt-12">
+        <h2 className="font-serif text-2xl">Evolución de las declaraciones</h2>
+        <p className="mt-2 max-w-3xl text-sm text-ink-muted">
+          Valores declarados en pesos del año fiscal. Un año sin declaración se
+          muestra como hueco; no se interpola ni se completa con cero. La
+          variación nominal solo se calcula entre declaraciones anuales
+          consecutivas y comparables.
+        </p>
+        <div className="mt-4">
+          <TablaEvolucion evolucion={legislador.evolucion} />
         </div>
       </section>
 
       <section className="mt-12">
         <h2 className="font-serif text-2xl">Declaración jurada</h2>
         {anios.length === 0 || !declaracion || anio === null ? (
-          <p className="mt-4 text-ink-muted">No hay declaraciones cargadas para esta persona.</p>
+          <div className="mt-4">
+            <p className="text-ink-muted">
+              Esta persona tiene mandatos cargados, pero no hay declaraciones
+              juradas disponibles en los datos.
+            </p>
+            {mock ? (
+              <p className="mt-3 text-sm text-ink-muted">
+                Esta ficha usa datos ficticios de demostración. No corresponde a
+                un expediente de la Oficina Anticorrupción.
+              </p>
+            ) : null}
+          </div>
         ) : (
           <>
-            {anioIgnorado || vistaIgnorada ? (
+            {anioInvalido || query.vistaInvalida ? (
               <div className="mt-4 space-y-3">
-                {anioIgnorado ? (
+                {anioInvalido ? (
                   <StatusNotice>
-                    El año {anioParamRaw} no figura entre las declaraciones
+                    El año {query.anioParam} no figura entre las declaraciones
                     disponibles. Se muestra la última declaración disponible
                     {anio !== null ? ` (${anio})` : ""}.
                   </StatusNotice>
                 ) : null}
-                {vistaIgnorada ? (
+                {query.vistaInvalida ? (
                   <StatusNotice>
-                    La vista de montos “{vistaQuery}” no es válida. Se muestra
-                    la vista predeterminada en pesos nominales.
+                    La vista de montos “{query.vistaParam}” no es válida. Se
+                    muestra la vista predeterminada en pesos nominales.
                   </StatusNotice>
                 ) : null}
               </div>
@@ -187,12 +210,12 @@ export default async function PerfilPage({
               <AniosNav slug={slug} anios={anios} seleccionado={anio} vista={vista} />
               <VistaToggle slug={slug} anio={anio} vista={vista} />
             </div>
-            <p className="mt-4 text-sm text-ink-muted">
+            <p className="mt-4 max-w-3xl text-sm text-ink-muted">
               {vista === "nominal"
-                ? "Valores declarados en pesos del año fiscal. Habitualmente valuación fiscal, no de mercado."
+                ? "Los valores corresponden a declaraciones juradas y no representan necesariamente valores de mercado. Algunos bienes, como inmuebles y vehículos, pueden utilizar valuaciones fiscales u otros criterios del régimen de declaración. Cifras en pesos del año fiscal."
                 : vista === "ipc"
-                  ? `Pesos constantes de ${IPC_ANIO_BASE} usando un índice IPC de demostración. Es una aproximación, no una valuación.`
-                  : "Equivalente aproximado en dólares usando una serie de tipo de cambio de demostración al 31/12 del año fiscal. No es poder adquisitivo ni valuación de mercado."}{" "}
+                  ? `Pesos constantes de ${IPC_ANIO_BASE} usando un índice IPC de demostración. Es una aproximación, no una valuación de mercado.`
+                  : "Equivalente aproximado en dólares usando una serie de tipo de cambio de demostración al 31/12 del año fiscal. No es la métrica principal ni una valuación de mercado."}{" "}
               <Link
                 href="/metodologia#montos"
                 className="text-accent underline underline-offset-2"
@@ -201,7 +224,13 @@ export default async function PerfilPage({
               </Link>
               .
             </p>
-            <dl className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <dl className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              <div className="border border-line bg-paper-raised p-4">
+                <dt className="text-xs uppercase tracking-wide text-ink-muted">
+                  Año fiscal
+                </dt>
+                <dd className="mt-1 font-medium">{anio}</dd>
+              </div>
               <div className="border border-line bg-paper-raised p-4">
                 <dt className="text-xs uppercase tracking-wide text-ink-muted">Tipo</dt>
                 <dd className="mt-1 font-medium">
@@ -212,40 +241,54 @@ export default async function PerfilPage({
                 </dd>
               </div>
               <div className="border border-line bg-paper-raised p-4">
-                <dt className="text-xs uppercase tracking-wide text-ink-muted">Bienes</dt>
+                <dt className="text-xs uppercase tracking-wide text-ink-muted">
+                  Bienes declarados
+                </dt>
                 <dd className="mt-1 font-medium">
                   {formatVista(declaracion.bienesMostrados, anio, vista, series)}
                 </dd>
               </div>
               <div className="border border-line bg-paper-raised p-4">
-                <dt className="text-xs uppercase tracking-wide text-ink-muted">Deudas</dt>
+                <dt className="text-xs uppercase tracking-wide text-ink-muted">
+                  Deudas declaradas
+                </dt>
                 <dd className="mt-1 font-medium">
                   {formatVista(declaracion.deudasMostradas, anio, vista, series)}
                 </dd>
               </div>
               <div className="border border-line bg-paper-raised p-4">
-                <dt className="text-xs uppercase tracking-wide text-ink-muted">Neto declarado</dt>
+                <dt className="text-xs uppercase tracking-wide text-ink-muted">
+                  Patrimonio neto declarado
+                </dt>
                 <dd className="mt-1 font-medium">
                   {formatVista(declaracion.neto, anio, vista, series)}
                 </dd>
               </div>
             </dl>
+            {vista !== "nominal" ? (
+              <p className="mt-6 text-sm text-ink-muted">
+                El detalle de bienes y deudas se muestra en pesos nominales del
+                año fiscal. La vista{" "}
+                {vista === "ipc" ? "ajustada por IPC" : "en USD aproximado"}{" "}
+                aplica al resumen de esta declaración, no a cada ítem.
+              </p>
+            ) : null}
             <div className="mt-8 grid gap-10 lg:grid-cols-2">
               <div>
-                <h3 className="font-serif text-xl">Composición de bienes</h3>
+                <h3 className="font-serif text-xl">Bienes declarados</h3>
                 <div className="mt-3">
                   <TablaBienes items={declaracion.bienesItems} />
                 </div>
               </div>
               <div>
-                <h3 className="font-serif text-xl">Deudas</h3>
+                <h3 className="font-serif text-xl">Deudas declaradas</h3>
                 <div className="mt-3">
                   <TablaDeudas items={declaracion.deudasItems} />
                 </div>
               </div>
             </div>
             <div className="mt-8">
-              <FuenteDeclaracion declaracion={declaracion} />
+              <FuenteDeclaracion declaracion={declaracion} mock={mock} />
             </div>
           </>
         )}
