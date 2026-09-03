@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { AvatarIniciales } from "@/components/ui/avatar-iniciales";
+import { StatusNotice } from "@/components/ui/status-notice";
 import { TablaBienes, TablaDeudas } from "@/components/perfil/composicion";
 import { TablaEvolucion } from "@/components/perfil/evolucion";
 import { FuenteDeclaracion, VistaToggle } from "@/components/perfil/fuente";
@@ -9,8 +11,8 @@ import {
   getDeclaracion,
   getLegisladorBySlug,
   getSeriesMacro,
+  listAllLegisladorSlugs,
   resolveSlugRedirect,
-  searchLegisladores,
 } from "@/lib/data/cached";
 import {
   convertirMonto,
@@ -25,7 +27,7 @@ import {
   formatUsdApprox,
 } from "@/lib/domain/formatters";
 import { VISTAS_MONTO, type VistaMonto } from "@/lib/domain/types";
-import { getSiteUrl, SITE_NAME } from "@/lib/site";
+import { SITE_NAME } from "@/lib/site";
 
 function isVista(v: string | undefined): v is VistaMonto {
   return !!v && (VISTAS_MONTO as readonly string[]).includes(v);
@@ -44,8 +46,8 @@ function formatVista(
 }
 
 export async function generateStaticParams() {
-  const result = await searchLegisladores({ page: 1, pageSize: 100 });
-  return result.data.map((item) => ({ slug: item.slug }));
+  const slugs = await listAllLegisladorSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -62,11 +64,11 @@ export async function generateMetadata({
   const description = `Declaraciones juradas patrimoniales de ${title}. Valores declarados, no de mercado.`;
   const canonical = `/legisladores/${slug}`;
   return {
-    title,
+    title: { absolute: `${title} · ${SITE_NAME}` },
     description,
     alternates: { canonical },
     openGraph: {
-      title: `${title} | ${SITE_NAME}`,
+      title: `${title} · ${SITE_NAME}`,
       description,
       url: canonical,
       locale: "es_AR",
@@ -96,9 +98,13 @@ export default async function PerfilPage({
   if (!legislador) notFound();
 
   const anios = legislador.declaraciones.map((d) => d.anioFiscal);
-  const anioParam = Number(one("anio"));
+  const anioParamRaw = one("anio");
+  const anioParam = Number(anioParamRaw);
+  const anioIgnorado =
+    Boolean(anioParamRaw) && !anios.includes(anioParam);
   const anio = anios.includes(anioParam) ? anioParam : (anios.at(-1) ?? null);
   const vistaQuery = one("vista");
+  const vistaIgnorada = Boolean(vistaQuery) && !isVista(vistaQuery);
   const vista: VistaMonto = isVista(vistaQuery) ? vistaQuery : "nominal";
   const series = await getSeriesMacro();
   const declaracion =
@@ -127,7 +133,8 @@ export default async function PerfilPage({
           </p>
           {legislador.cuit ? (
             <p className="mt-2 text-sm text-ink-muted">
-              CUIT publicado por la fuente: {legislador.cuit}
+              CUIT (identificador de matching, no forma parte de la URL):{" "}
+              {legislador.cuit}
             </p>
           ) : null}
         </div>
@@ -154,6 +161,23 @@ export default async function PerfilPage({
           <p className="mt-4 text-ink-muted">No hay declaraciones cargadas para esta persona.</p>
         ) : (
           <>
+            {anioIgnorado || vistaIgnorada ? (
+              <div className="mt-4 space-y-3">
+                {anioIgnorado ? (
+                  <StatusNotice>
+                    El año {anioParamRaw} no figura entre las declaraciones
+                    disponibles. Se muestra la última declaración disponible
+                    {anio !== null ? ` (${anio})` : ""}.
+                  </StatusNotice>
+                ) : null}
+                {vistaIgnorada ? (
+                  <StatusNotice>
+                    La vista de montos “{vistaQuery}” no es válida. Se muestra
+                    la vista predeterminada en pesos nominales.
+                  </StatusNotice>
+                ) : null}
+              </div>
+            ) : null}
             <div className="mt-4 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <AniosNav slug={slug} anios={anios} seleccionado={anio} vista={vista} />
               <VistaToggle slug={slug} anio={anio} vista={vista} />
@@ -163,7 +187,14 @@ export default async function PerfilPage({
                 ? "Valores declarados en pesos del año fiscal. Habitualmente valuación fiscal, no de mercado."
                 : vista === "ipc"
                   ? `Pesos constantes de ${IPC_ANIO_BASE} usando un índice IPC de demostración. Es una aproximación, no una valuación.`
-                  : "Equivalente aproximado al tipo de cambio de referencia BCRA (serie de demostración) al 31/12 del año fiscal. No es poder adquisitivo ni valuación de mercado. No se usa dólar paralelo."}
+                  : "Equivalente aproximado en dólares usando una serie de tipo de cambio de demostración al 31/12 del año fiscal. No es poder adquisitivo ni valuación de mercado."}{" "}
+              <Link
+                href="/metodologia#montos"
+                className="text-accent underline underline-offset-2"
+              >
+                Cómo se interpretan estos montos
+              </Link>
+              .
             </p>
             <dl className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <div className="border border-line bg-paper-raised p-4">
@@ -214,20 +245,6 @@ export default async function PerfilPage({
           </>
         )}
       </section>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            name: `${legislador.persona.nombre} ${legislador.persona.apellido}`,
-            jobTitle: mandatoActual
-              ? `${formatCamara(mandatoActual.camara)} · ${mandatoActual.distrito}`
-              : "Legislador/a nacional",
-            url: `${getSiteUrl()}/legisladores/${slug}`,
-          }),
-        }}
-      />
     </article>
   );
 }

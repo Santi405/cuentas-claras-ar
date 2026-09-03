@@ -9,4 +9,4 @@ export function getSiteUrl(): string {
 }
 
 export const SITE_DESCRIPTION =
-  "Explorador de declaraciones juradas patrimoniales de diputados y senadores nacionales. Datos públicos, valores fiscales, sin conclusiones políticas.";
+  "Consulta de declaraciones juradas patrimoniales de diputados y senadores nacionales. Valores declarados, no de mercado. No es un sitio oficial.";

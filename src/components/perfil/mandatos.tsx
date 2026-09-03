@@ -53,7 +53,7 @@ export function AniosNav({
           <Link
             key={anio}
             href={href}
-            aria-current={active ? "page" : undefined}
+            aria-current={active ? "true" : undefined}
             className={
               active
                 ? "inline-flex min-h-11 items-center bg-accent px-3 py-2 text-sm text-paper-raised"

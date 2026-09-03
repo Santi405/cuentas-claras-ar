@@ -6,12 +6,17 @@ export type ApiErrorBody = {
   };
 };
 
+const API_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, OPTIONS",
+  "X-Robots-Tag": "noindex, nofollow",
+} as const;
+
 export function jsonOk<T>(data: T, init?: ResponseInit) {
   return Response.json(data, {
     ...init,
     headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, OPTIONS",
+      ...API_HEADERS,
       "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
       ...init?.headers,
     },
@@ -28,8 +33,7 @@ export function jsonError(
   return Response.json(body, {
     status,
     headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, OPTIONS",
+      ...API_HEADERS,
     },
   });
 }
@@ -38,8 +42,7 @@ export function optionsOk() {
   return new Response(null, {
     status: 204,
     headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, OPTIONS",
+      ...API_HEADERS,
       "Access-Control-Allow-Headers": "Content-Type",
     },
   });
