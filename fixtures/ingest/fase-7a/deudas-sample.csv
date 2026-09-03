@@ -1,0 +1,2 @@
+dj_id,cuit,anio,tipo_declaracion_jurada_id,tipo_declaracion_jurada_descripcion,rectificativa,funcionario_apellido_nombre,periodo_inicio_cierre,deuda_tipo, deuda_descripcion, deuda_radicacion_localizacion, deuda_clasificacion, deuda_importe
+910001,20000000028,2024,1,Anual,0,"Ejemplo, Ana",C,COMUN,Prestamo de demostracion,ARGENTINA,Otras deudas en el pais al cierre,12000.50

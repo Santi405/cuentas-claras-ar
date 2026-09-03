@@ -1,45 +1,40 @@
 import { z } from "zod";
 
-const optionalNumber = z
-  .union([z.string(), z.number(), z.null(), z.undefined()])
-  .transform((v) => {
-    if (v === null || v === undefined || v === "") return 0;
-    const n = Number(String(v).replace(",", "."));
-    return Number.isFinite(n) ? n : 0;
-  });
+/** Money stays a string here. Parsing happens with `parseMoney` — never coerce invalid values to 0. */
+const moneyString = z.union([z.string(), z.number()]).transform((v) => String(v));
 
 export const djpiConsolidadoSchema = z.object({
-  dj_id: z.coerce.number().int(),
+  dj_id: z.string().min(1),
   cuit: z.union([z.string(), z.number()]).optional(),
-  anio: z.coerce.number().int(),
-  tipo_declaracion_jurada_id: z.coerce.number().int().optional(),
+  anio: z.string().min(1),
+  tipo_declaracion_jurada_id: z.string().optional(),
   tipo_declaracion_jurada_descripcion: z.string().optional(),
-  rectificativa: z.coerce.number().int().optional().default(0),
+  rectificativa: z.string().optional(),
   funcionario_apellido_nombre: z.string(),
   organismo: z.string().optional().default(""),
   cargo: z.string().optional().default(""),
-  total_bienes_inicio: optionalNumber,
-  deudas_inicio: optionalNumber,
-  total_bienes_final: optionalNumber,
-  total_deudas_final: optionalNumber,
+  total_bienes_inicio: moneyString,
+  deudas_inicio: moneyString,
+  total_bienes_final: moneyString,
+  total_deudas_final: moneyString,
 });
 
 export const djpiBienSchema = z.object({
-  dj_id: z.coerce.number().int(),
+  dj_id: z.string().min(1),
   bien_descripcion: z.string().optional().default(""),
   bien_tipo: z.string().optional().default(""),
   bien_origen_fondos: z.string().optional().default(""),
   bien_titularidad: z.string().optional().default(""),
-  bien_importe: z.union([z.string(), z.number()]).optional().default("0"),
+  bien_importe: moneyString,
 });
 
 export const djpiDeudaSchema = z.object({
-  dj_id: z.coerce.number().int(),
+  dj_id: z.string().min(1),
   deuda_tipo: z.string().optional().default("Común"),
   deuda_descripcion: z.string().optional().default(""),
   deuda_radicacion_localizacion: z.string().optional().default(""),
   deuda_clasificacion: z.string().optional().default(""),
-  deuda_importe: optionalNumber,
+  deuda_importe: moneyString,
 });
 
 export type DjpiConsolidado = z.infer<typeof djpiConsolidadoSchema>;

@@ -1,0 +1,2 @@
+dj_id,cuit,anio,tipo_declaracion_jurada_id,tipo_declaracion_jurada_descripcion,rectificativa,funcionario_apellido_nombre,familiar_apellido_nombre, familiar_cuit, familiar_genero,familiar_fecha_nacimiento, familiar_parentesco
+910001,20000000028,2024,1,Anual,0,"Ejemplo, Ana","Familiar, Ejemplo",27999999999,F,1990-01-01,CONYUGE / CONVIVIENTE

@@ -36,9 +36,15 @@ async function main() {
   console.log(`Reporte: ${out}`);
 
   if (process.env.DATABASE_URL && process.env.DATA_SOURCE === "postgres") {
-    const { persistIngestResult } = await import("../src/lib/ingest/persist");
-    await persistIngestResult(result);
-    console.log("Persistido en Postgres (revisión + declaraciones matcheadas por CUIT).");
+    if (process.env.INGEST_ALLOW_PERSIST !== "true") {
+      console.log(
+        "No se persistió: Fase 7A no escribe la base. Para un experimento local explícito usá INGEST_ALLOW_PERSIST=true.",
+      );
+    } else {
+      const { persistIngestResult } = await import("../src/lib/ingest/persist");
+      await persistIngestResult(result);
+      console.log("Persistido en Postgres (revisión + declaraciones matcheadas por CUIT).");
+    }
   }
 }
 

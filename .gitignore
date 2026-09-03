@@ -20,6 +20,10 @@
 # ingest output
 fixtures/ingest/ingest-report.json
 
+# official snapshots (never commit bulk DJPI dumps)
+/data/snapshots/
+/data/raw/
+
 # production
 /build
 

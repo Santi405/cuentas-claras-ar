@@ -2,13 +2,16 @@ import { createHash, randomUUID } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { basename } from "node:path";
 import { parseCsv } from "./csv";
+import { parseCuit } from "./cuit";
+import { identityFromRow } from "./declaration";
 import {
-  isGrupoFamiliarResource,
   hasFamiliarColumns,
-  looksLikeLegisladorNacional,
+  isGrupoFamiliarResource,
   normalizeNombre,
-  padCuit,
 } from "./matching";
+import { decideMatch } from "./matching-rules";
+import { moneyToCents, parseMoney } from "./money";
+import { interpretBienImporte } from "./ownership";
 import {
   djpiBienSchema,
   djpiConsolidadoSchema,
@@ -68,18 +71,21 @@ export type IngestResult = {
   }>;
 };
 
-function tipoFromDescripcion(value: string | undefined): "inicial" | "anual" | "baja" {
-  const v = (value ?? "").toLowerCase();
-  if (v.includes("inicial") || v.includes("alta")) return "inicial";
-  if (v.includes("baja") || v.includes("cese")) return "baja";
-  return "anual";
+function amountOrSkip(raw: string): number | null {
+  const parsed = parseMoney(raw);
+  if (!parsed.ok) return null;
+  const cents = moneyToCents(parsed.canonical);
+  if (cents === null) return null;
+  const asNumber = Number(parsed.canonical);
+  return Number.isFinite(asNumber) ? asNumber : null;
 }
 
 export function buildPersonaIndex(personas: Persona[]): IngestPersonaIndex {
   const byCuit = new Map<string, Persona>();
   const byNombre = new Map<string, Persona[]>();
   for (const p of personas) {
-    if (p.cuit) byCuit.set(p.cuit, p);
+    const parsed = parseCuit(p.cuit);
+    if (parsed.ok) byCuit.set(parsed.canonical, p);
     const key = normalizeNombre(`${p.apellido} ${p.nombre}`);
     const inverted = normalizeNombre(`${p.nombre} ${p.apellido}`);
     const comma = normalizeNombre(`${p.apellido}, ${p.nombre}`);
@@ -90,31 +96,6 @@ export function buildPersonaIndex(personas: Persona[]): IngestPersonaIndex {
     }
   }
   return { byCuit, byNombre };
-}
-
-function matchPersona(
-  index: IngestPersonaIndex,
-  nombre: string,
-  cuit: string | null,
-): { persona: Persona | null; reason: string | null } {
-  if (cuit && index.byCuit.has(cuit)) {
-    return { persona: index.byCuit.get(cuit)!, reason: null };
-  }
-  const key = normalizeNombre(nombre.replace(",", " "));
-  const candidates = index.byNombre.get(key) ?? [];
-  if (candidates.length === 1 && !cuit) {
-    return {
-      persona: null,
-      reason: "nombre_sin_cuit",
-    };
-  }
-  if (candidates.length > 1) {
-    return { persona: null, reason: "homonimo" };
-  }
-  if (cuit && !index.byCuit.has(cuit) && candidates.length === 1) {
-    return { persona: null, reason: "cuit_nuevo_nombre_conocido" };
-  }
-  return { persona: null, reason: "sin_match" };
 }
 
 export function ingestDjpiFiles(
@@ -154,16 +135,37 @@ export function ingestDjpiFiles(
           result.skippedRows += 1;
           continue;
         }
-        const titularidad = Number(
-          String(parsed.data.bien_titularidad).replace(/[^\d.,]/g, "").replace(",", "."),
+        const interpreted = interpretBienImporte(
+          parsed.data.bien_importe,
+          parsed.data.bien_titularidad,
         );
+        if (!interpreted.importeParse.ok || interpreted.importeCanonical === null) {
+          result.skippedRows += 1;
+          continue;
+        }
+        const cents = moneyToCents(interpreted.importeCanonical);
+        if (cents === null) {
+          result.skippedRows += 1;
+          continue;
+        }
+        const titularidad = parseMoney(parsed.data.bien_titularidad);
+        const djId = Number(parsed.data.dj_id);
+        if (!Number.isInteger(djId)) {
+          result.skippedRows += 1;
+          continue;
+        }
+        const importeArs = Number(interpreted.importeCanonical);
+        if (!Number.isFinite(importeArs)) {
+          result.skippedRows += 1;
+          continue;
+        }
         result.bienes.push({
-          sourceDjId: parsed.data.dj_id,
+          sourceDjId: djId,
           tipo: parsed.data.bien_tipo,
           descripcion: parsed.data.bien_descripcion,
           origenFondos: parsed.data.bien_origen_fondos,
-          titularidadPct: Number.isFinite(titularidad) ? titularidad : null,
-          importeArs: Number(String(parsed.data.bien_importe).replace(",", ".")) || 0,
+          titularidadPct: titularidad.ok ? Number(titularidad.canonical) : null,
+          importeArs,
         });
       }
       continue;
@@ -176,13 +178,19 @@ export function ingestDjpiFiles(
           result.skippedRows += 1;
           continue;
         }
+        const importe = amountOrSkip(parsed.data.deuda_importe);
+        const djId = Number(parsed.data.dj_id);
+        if (importe === null || !Number.isInteger(djId)) {
+          result.skippedRows += 1;
+          continue;
+        }
         result.deudas.push({
-          sourceDjId: parsed.data.dj_id,
+          sourceDjId: djId,
           tipo: parsed.data.deuda_tipo,
           descripcion: parsed.data.deuda_descripcion,
           radicacion: parsed.data.deuda_radicacion_localizacion,
           clasificacion: parsed.data.deuda_clasificacion,
-          importeArs: parsed.data.deuda_importe,
+          importeArs: importe,
         });
       }
       continue;
@@ -195,18 +203,59 @@ export function ingestDjpiFiles(
         continue;
       }
       const d = parsed.data;
-      if (!looksLikeLegisladorNacional(d.organismo, d.cargo)) {
+      const identity = identityFromRow({
+        ...row,
+        dj_id: d.dj_id,
+        anio: d.anio,
+        rectificativa: d.rectificativa ?? "",
+        tipo_declaracion_jurada_id: d.tipo_declaracion_jurada_id ?? "",
+        tipo_declaracion_jurada_descripcion: d.tipo_declaracion_jurada_descripcion ?? "",
+        cuit: d.cuit === undefined ? "" : String(d.cuit),
+      });
+      if (
+        identity.identity.sourceDjId === null ||
+        identity.identity.anio === null ||
+        identity.identity.tipo === null ||
+        identity.identity.rectificativa === null
+      ) {
         result.skippedRows += 1;
         continue;
       }
-      const cuit = padCuit(d.cuit);
-      const matched = matchPersona(index, d.funcionario_apellido_nombre, cuit);
-      if (!matched.persona) {
+      const bienesInicio = amountOrSkip(d.total_bienes_inicio);
+      const bienesCierre = amountOrSkip(d.total_bienes_final);
+      const deudasInicio = amountOrSkip(d.deudas_inicio);
+      const deudasCierre = amountOrSkip(d.total_deudas_final);
+      if (
+        bienesInicio === null ||
+        bienesCierre === null ||
+        deudasInicio === null ||
+        deudasCierre === null
+      ) {
+        result.skippedRows += 1;
+        continue;
+      }
+
+      const nameKey = normalizeNombre(d.funcionario_apellido_nombre.replace(",", " "));
+      const parsedCuit = parseCuit(d.cuit);
+      const existing = parsedCuit.ok ? (index.byCuit.get(parsedCuit.canonical) ?? null) : null;
+      const decision = decideMatch({
+        funcionarioApellidoNombre: d.funcionario_apellido_nombre,
+        organismo: d.organismo,
+        cargo: d.cargo,
+        cuitRaw: d.cuit,
+        existingByCuit: existing,
+        nameCandidates: index.byNombre.get(nameKey) ?? [],
+      });
+      if (decision.action === "skip") {
+        result.skippedRows += 1;
+        continue;
+      }
+      if (decision.action === "review" || !decision.personId) {
         result.review.push({
-          reason: matched.reason ?? "sin_match",
-          djId: d.dj_id,
+          reason: decision.reason,
+          djId: Number(identity.identity.sourceDjId),
           nombre: d.funcionario_apellido_nombre,
-          cuit,
+          cuit: decision.cuitCanonical ?? (parsedCuit.ok ? parsedCuit.canonical : null),
           organismo: d.organismo,
           cargo: d.cargo,
         });
@@ -214,17 +263,17 @@ export function ingestDjpiFiles(
       }
       result.acceptedRows += 1;
       result.declaraciones.push({
-        sourceDjId: d.dj_id,
-        personaId: matched.persona.id,
-        anioFiscal: d.anio,
-        tipo: tipoFromDescripcion(d.tipo_declaracion_jurada_descripcion),
-        rectificativa: d.rectificativa ?? 0,
+        sourceDjId: Number(identity.identity.sourceDjId),
+        personaId: decision.personId,
+        anioFiscal: identity.identity.anio,
+        tipo: identity.identity.tipo,
+        rectificativa: identity.identity.rectificativa,
         organismoDeclarado: d.organismo,
         cargoDeclarado: d.cargo,
-        bienesInicio: d.total_bienes_inicio,
-        bienesCierre: d.total_bienes_final,
-        deudasInicio: d.deudas_inicio,
-        deudasCierre: d.total_deudas_final,
+        bienesInicio,
+        bienesCierre,
+        deudasInicio,
+        deudasCierre,
         archivo: name,
         archivoHash: hash,
       });
