@@ -1,14 +1,19 @@
+export const API_ERROR_CODE = {
+  INVALID_QUERY: "INVALID_QUERY",
+  NOT_FOUND: "NOT_FOUND",
+} as const;
+
+export type ApiErrorCode =
+  (typeof API_ERROR_CODE)[keyof typeof API_ERROR_CODE];
+
 export type ApiErrorBody = {
   error: {
-    code: string;
+    code: ApiErrorCode;
     message: string;
-    details?: unknown;
   };
 };
 
 const API_HEADERS = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET, OPTIONS",
   "X-Robots-Tag": "noindex, nofollow",
 } as const;
 
@@ -25,11 +30,10 @@ export function jsonOk<T>(data: T, init?: ResponseInit) {
 
 export function jsonError(
   status: number,
-  code: string,
+  code: ApiErrorCode,
   message: string,
-  details?: unknown,
 ) {
-  const body: ApiErrorBody = { error: { code, message, details } };
+  const body: ApiErrorBody = { error: { code, message } };
   return Response.json(body, {
     status,
     headers: {
@@ -38,12 +42,10 @@ export function jsonError(
   });
 }
 
-export function optionsOk() {
-  return new Response(null, {
-    status: 204,
-    headers: {
-      ...API_HEADERS,
-      "Access-Control-Allow-Headers": "Content-Type",
-    },
-  });
+export function invalidQuery(message: string) {
+  return jsonError(400, API_ERROR_CODE.INVALID_QUERY, message);
+}
+
+export function notFound(message = "Legislador no encontrado") {
+  return jsonError(404, API_ERROR_CODE.NOT_FOUND, message);
 }

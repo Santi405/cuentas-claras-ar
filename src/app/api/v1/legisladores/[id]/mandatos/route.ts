@@ -1,7 +1,6 @@
-import { listDeclaraciones } from "@/lib/data/cached";
 import { jsonOk, notFound } from "@/lib/api/envelope";
 import { loadLegisladorByPublicId } from "@/lib/api/load-legislador";
-import { publicDeclaracionDetalle } from "@/lib/api/serialize";
+import { publicMandato } from "@/lib/api/serialize";
 
 export async function GET(
   _request: Request,
@@ -10,8 +9,7 @@ export async function GET(
   const { id } = await params;
   const legislador = await loadLegisladorByPublicId(id);
   if (!legislador) return notFound();
-  const ddjj = await listDeclaraciones(legislador.persona.id);
   return jsonOk({
-    data: ddjj.map(publicDeclaracionDetalle),
+    data: legislador.mandatos.map(publicMandato),
   });
 }

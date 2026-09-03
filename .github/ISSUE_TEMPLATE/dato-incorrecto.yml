@@ -1,0 +1,27 @@
+name: Dato posiblemente incorrecto
+description: Un monto, bien, deuda o total declarado no coincide con lo esperado.
+title: "[dato] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Este canal es para el dataset del portal, no reemplaza a la fuente oficial.
+        Hoy el sitio puede operar con datos ficticios de demostración.
+  - type: textarea
+    id: descripcion
+    attributes:
+      label: Qué dato parece incorrecto
+      description: Persona (slug o nombre), año fiscal y el valor que se ve frente al que correspondería.
+    validations:
+      required: true
+  - type: input
+    id: fuente
+    attributes:
+      label: Fuente de referencia (si existe)
+      description: Dataset, archivo o publicación oficial. No hace falta adjuntar documentos reservados.
+  - type: textarea
+    id: trazabilidad
+    attributes:
+      label: Cómo se podría corregir sin perder trazabilidad
+      description: Qué habría que cambiar y a partir de qué origen.

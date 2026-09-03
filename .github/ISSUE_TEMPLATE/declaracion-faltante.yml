@@ -1,0 +1,16 @@
+name: Declaración faltante
+description: Falta un año o una declaración que debería estar en el conjunto utilizado.
+title: "[declaracion-faltante] "
+labels: []
+body:
+  - type: textarea
+    id: descripcion
+    attributes:
+      label: Qué declaración falta
+      description: Persona (slug) y año fiscal. Un año vacío en el portal no prueba que no se haya presentado.
+    validations:
+      required: true
+  - type: input
+    id: fuente
+    attributes:
+      label: Dónde está publicada, si se conoce

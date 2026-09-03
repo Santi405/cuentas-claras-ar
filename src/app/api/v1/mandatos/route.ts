@@ -1,22 +1,19 @@
+import { invalidQuery, jsonOk, notFound } from "@/lib/api/envelope";
+import { asRecord, invalidQueryMessage, mandatosQuerySchema } from "@/lib/api/schemas";
+import { publicMandato } from "@/lib/api/serialize";
 import { getLegisladorByIdOrSlug, listMandatos } from "@/lib/data/cached";
-import { jsonError, jsonOk, optionsOk } from "@/lib/api/envelope";
-import { asRecord, mandatosQuerySchema } from "@/lib/api/schemas";
-
-export function OPTIONS() {
-  return optionsOk();
-}
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const parsed = mandatosQuerySchema.safeParse(asRecord(url.searchParams));
   if (!parsed.success) {
-    return jsonError(400, "invalid_query", "Parámetros inválidos", parsed.error.flatten());
+    return invalidQuery(invalidQueryMessage(parsed.error));
   }
   const q = parsed.data;
   let personaId: string | undefined;
   if (q.persona) {
     const legislator = await getLegisladorByIdOrSlug(q.persona);
-    if (!legislator) return jsonError(404, "not_found", "Legislador no encontrado");
+    if (!legislator) return notFound();
     personaId = legislator.persona.id;
   }
   const data = await listMandatos({
@@ -24,5 +21,5 @@ export async function GET(request: Request) {
     distrito: q.distrito,
     personaId,
   });
-  return jsonOk({ data });
+  return jsonOk({ data: data.map(publicMandato) });
 }

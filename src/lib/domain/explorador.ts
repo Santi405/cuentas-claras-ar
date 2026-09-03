@@ -7,6 +7,7 @@ import {
   type EstadoLegislador,
   type SortField,
 } from "./types";
+import { ANIO_MAX, ANIO_MIN, PAGE_MIN } from "./query";
 import { slugifyDistrito } from "./slugs";
 
 export const EXPLORER_DEFAULT_PAGE = 1;
@@ -40,21 +41,21 @@ function first(sp: SearchParamsInput, key: string): string | undefined {
 function parsePage(value: string | undefined): number {
   if (!value) return EXPLORER_DEFAULT_PAGE;
   const n = Number(value);
-  if (!Number.isInteger(n) || n < 1) return EXPLORER_DEFAULT_PAGE;
+  if (!Number.isInteger(n) || n < PAGE_MIN) return EXPLORER_DEFAULT_PAGE;
   return n;
 }
 
 function parsePageSize(value: string | undefined): number {
   if (!value) return EXPLORER_DEFAULT_PAGE_SIZE;
   const n = Number(value);
-  if (!Number.isInteger(n) || n < 1) return EXPLORER_DEFAULT_PAGE_SIZE;
+  if (!Number.isInteger(n) || n < PAGE_MIN) return EXPLORER_DEFAULT_PAGE_SIZE;
   return Math.min(n, EXPLORER_PAGE_SIZE_MAX);
 }
 
 function parseAnio(value: string | undefined): number | undefined {
   if (!value) return undefined;
   const n = Number(value);
-  if (!Number.isInteger(n) || n < 1990 || n > 2100) return undefined;
+  if (!Number.isInteger(n) || n < ANIO_MIN || n > ANIO_MAX) return undefined;
   return n;
 }
 
@@ -159,12 +160,14 @@ export function ignoredExplorerParamLabels(sp: SearchParamsInput): string[] {
   const page = first(sp, "page");
   if (page) {
     const n = Number(page);
-    if (!Number.isInteger(n) || n < 1) labels.push(IGNORED_PARAM_LABELS.page);
+    if (!Number.isInteger(n) || n < PAGE_MIN) {
+      labels.push(IGNORED_PARAM_LABELS.page);
+    }
   }
   const pageSize = first(sp, "page_size") ?? first(sp, "pageSize");
   if (pageSize) {
     const n = Number(pageSize);
-    if (!Number.isInteger(n) || n < 1) {
+    if (!Number.isInteger(n) || n < PAGE_MIN) {
       labels.push(IGNORED_PARAM_LABELS.page_size);
     }
   }

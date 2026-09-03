@@ -26,6 +26,7 @@ const SECTIONS = [
   { id: "evolucion", label: "Evolución patrimonial" },
   { id: "monedas", label: "Monedas y conversiones" },
   { id: "fuentes", label: "Fuentes y trazabilidad" },
+  { id: "matching", label: "Matching de personas" },
   { id: "grupo-familiar", label: "Por qué no se incluye el grupo familiar" },
   { id: "conceptos-politicos", label: "Partido, agrupación, bloque e interbloque" },
   { id: "errores", label: "Cómo reportar errores" },
@@ -295,6 +296,36 @@ export default function MetodologiaPage() {
           tipo de cambio de referencia), cuando existan y estén documentadas.
           No forman parte del texto de la declaración.
         </p>
+        <h3 className="font-serif text-xl tracking-tight">Autoridad por tipo de dato</h3>
+        <p>No hay una fuente superior para todos los atributos. El criterio previsto es:</p>
+        <ul className="list-disc space-y-2 pl-5">
+          <li>
+            <strong>Dato patrimonial</strong> (declaraciones, bienes, deudas,
+            importes, <code>dj_id</code>): Oficina Anticorrupción / DJPI.
+          </li>
+          <li>
+            <strong>Dato parlamentario</strong> (mandatos, distrito, bloque,
+            interbloque): la cámara correspondiente (Diputados o Senado).
+          </li>
+          <li>
+            <strong>Dato electoral</strong> (agrupación o alianza): Cámara
+            Nacional Electoral, cuando exista.
+          </li>
+          <li>
+            <strong>IPC:</strong> INDEC, serie oficial, conservando su escala
+            original. Las vistas podrán normalizar a una base de presentación.
+            Para comparaciones anuales, diciembre vs diciembre cuando
+            corresponda metodológicamente.
+          </li>
+          <li>
+            <strong>Tipo de cambio:</strong> BCRA, Tipo de Cambio de Referencia
+            (Com. A 3500). No se usa dólar blue, MEP ni CCL como default.
+          </li>
+        </ul>
+        <p>
+          Este contrato es conceptual. Esta fase no incorpora series oficiales
+          ni un pipeline de ingesta.
+        </p>
         <h3 className="font-serif text-xl tracking-tight">
           Estado actual: datos ficticios
         </h3>
@@ -313,6 +344,34 @@ export default function MetodologiaPage() {
           Cada declaración guarda, cuando existe, un nombre de archivo, una
           fecha de snapshot y un hash. En el mock esos campos describen el
           archivo de demostración, no un documento de un organismo.
+        </p>
+      </section>
+
+      <section id="matching" className="mt-10 space-y-4">
+        <h2 className="font-serif text-2xl tracking-tight">Matching de personas</h2>
+        <p>
+          El CUIT es un identificador de matching interno. No forma parte de la
+          URL pública y la API no lo exige para consultar un perfil.
+        </p>
+        <p>La regla prevista para la futura ingesta es:</p>
+        <ul className="list-disc space-y-2 pl-5">
+          <li>
+            <strong>CUIT presente:</strong> se permite un auto-match después de
+            validar el identificador.
+          </li>
+          <li>
+            <strong>CUIT ausente:</strong> no hay auto-match. El registro va a
+            revisión.
+          </li>
+          <li>
+            <strong>Nombre parecido solamente:</strong> nunca alcanza para
+            auto-match. No se usa coincidencia difusa como mecanismo silencioso
+            de identidad.
+          </li>
+        </ul>
+        <p>
+          Esta fase no implementa la ingesta. Solo deja la regla explícita para
+          no improvisarla después.
         </p>
       </section>
 
@@ -381,11 +440,12 @@ export default function MetodologiaPage() {
           modificó, a partir de qué fuente y en qué momento.
         </p>
         <p>
-          Por ahora este portal no tiene formulario de reporte, autenticación ni
-          sistema de tickets. Cuando exista un canal de corrección, se
-          documentará aquí. Mientras tanto, el registro de referencia sigue
-          siendo el de la fuente oficial, no el de esta interfaz de
-          demostración.
+          Por ahora este portal no tiene formulario de reporte ni autenticación.
+          El canal previsto es GitHub Issues del repositorio. Una corrección
+          debe preservar la trazabilidad: qué se modificó, a partir de qué
+          fuente y en qué momento. Mientras el sitio opera con datos ficticios,
+          el registro de referencia de un dato real sigue siendo la fuente
+          oficial, no esta interfaz.
         </p>
         <p>
           El recorte de datos, los identificadores y el estado de la API se

@@ -1,0 +1,24 @@
+name: Problema de fuente
+description: Procedencia, archivo, snapshot o autoridad de un dato.
+title: "[fuente] "
+labels: []
+body:
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: Tipo de dato
+      options:
+        - Patrimonial (DJPI / OA)
+        - Parlamentario (cámara)
+        - Electoral (CNE)
+        - IPC (INDEC)
+        - Tipo de cambio (BCRA)
+        - Otro
+    validations:
+      required: true
+  - type: textarea
+    id: descripcion
+    attributes:
+      label: Qué ocurre con la fuente
+    validations:
+      required: true
