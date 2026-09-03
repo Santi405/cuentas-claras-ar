@@ -7,4 +7,4 @@ export function getRepository(): LegisladorRepository {
   return getDataSource() === "postgres" ? postgresRepository : mockRepository;
 }
 
-export { getDataSource, isMockMode } from "@/lib/data/mode";
+export { getDataSource, isFictionalData, isMockMode } from "@/lib/data/mode";

@@ -1,5 +1,4 @@
 CREATE EXTENSION IF NOT EXISTS unaccent;--> statement-breakpoint
-CREATE EXTENSION IF NOT EXISTS pg_trgm;--> statement-breakpoint
 CREATE TYPE "public"."camara" AS ENUM('diputados', 'senadores');--> statement-breakpoint
 CREATE TYPE "public"."identificador_sistema" AS ENUM('cuit', 'oa_dj', 'camara', 'cne');--> statement-breakpoint
 CREATE TYPE "public"."periodo_declaracion" AS ENUM('I', 'C');--> statement-breakpoint
@@ -116,5 +115,4 @@ CREATE INDEX "mandatos_distrito_idx" ON "mandatos" USING btree ("distrito");--> 
 CREATE INDEX "mandatos_vigentes_idx" ON "mandatos" USING btree ("fin");--> statement-breakpoint
 CREATE UNIQUE INDEX "personas_slug_uidx" ON "personas" USING btree ("slug");--> statement-breakpoint
 CREATE UNIQUE INDEX "personas_cuit_uidx" ON "personas" USING btree ("cuit");--> statement-breakpoint
-CREATE INDEX "personas_apellido_idx" ON "personas" USING btree ("apellido");--> statement-breakpoint
-CREATE INDEX "personas_nombre_trgm_idx" ON "personas" USING gin ((unaccent(lower(apellido || ' ' || nombre))) gin_trgm_ops);
+CREATE INDEX "personas_apellido_idx" ON "personas" USING btree ("apellido");

@@ -15,6 +15,7 @@ function createDb() {
 
 let _db: ReturnType<typeof createDb> | null = null;
 
+/** Lazy singleton. Build stays possible without DATABASE_URL until a query runs. */
 export function getDb() {
   if (!_db) _db = createDb();
   return _db;

@@ -10,6 +10,8 @@ El recorte cubre el Congreso nacional. No se muestran datos de grupo familiar.
 - Datos mock por defecto (`DATA_SOURCE=mock`)
 - PostgreSQL opcional: Neon + Drizzle (`DATA_SOURCE=postgres`)
 
+La UI y `/api/v1` leen `LegisladorRepository`. No ejecutan SQL. El adapter (`mock` o `postgres`) se elige con `DATA_SOURCE`.
+
 ## Vercel
 
 La app vive en la **raíz del repositorio** (`package.json` junto a `next.config.ts`), no en `src/`. `src/` solo contiene el código de Next.js (`src/app`).
@@ -23,7 +25,17 @@ En el proyecto de Vercel:
 
 Si Root Directory apunta a `src`, Vercel no ve `next` en `package.json` y falla con *No Next.js version detected*.
 
-## Desarrollo
+Variables (Preview y Production, por separado; nunca en el repo):
+
+| Variable | Mock (default) | Postgres |
+| --- | --- | --- |
+| `DATA_SOURCE` | `mock` o ausente | `postgres` |
+| `DATABASE_URL` | no hace falta | connection string de Neon |
+| `DEMO_MODE` | ausente (banner on) | `false` solo cuando haya datos reales |
+
+No hay fallback `postgres → mock` si la base falla: el error debe ser visible.
+
+## Desarrollo (mock)
 
 ```bash
 cp .env.example .env.local
@@ -33,24 +45,58 @@ npm run dev
 
 Abrir [http://localhost:3000](http://localhost:3000).
 
-Mientras `DATA_SOURCE` no sea `postgres`, el banner indica que las personas y los montos son ficticios.
+El banner indica que las personas y los montos son ficticios. Con el seed actual de Postgres el banner sigue visible hasta `DEMO_MODE=false`.
+
+## Postgres (Fase 6)
+
+Sigue usando el JSON de demostración. No hay funcionarios reales.
+
+```text
+crear DB Neon
+↓
+aplicar migrations
+↓
+seed
+↓
+DATA_SOURCE=postgres
+↓
+npm run dev
+```
+
+1. En un proyecto Vercel vinculado: `vercel integration add neon` (inyecta `DATABASE_URL` en Preview y Production).
+2. `vercel env pull .env.local` (o copiá `DATABASE_URL` a `.env.local` a mano).
+3. Aplicá el schema versionado (no uses `drizzle-kit push` como flujo permanente):
+
+```bash
+npm run db:migrate
+npm run db:seed
+```
+
+4. En `.env.local`:
+
+```env
+DATA_SOURCE=postgres
+DATABASE_URL=...
+```
+
+5. `npm run dev`
+
+`db:seed` **borra** las tablas de dominio y vuelve a cargar el mock JSON. Es idempotente en el sentido de “recrear el dataset ficticio”. No lo ejecutes contra una base con declaraciones reales.
+
+El cliente Neon se instancia de forma lazy (`getDb()`), para que `next build` no falle sin `DATABASE_URL` mientras `DATA_SOURCE=mock`.
+
+Búsqueda en Postgres: `unaccent` + `LIKE` (equivalente a `normalizeSearch` del mock: sin acentos, sin distinción de mayúsculas). No hay `pg_trgm`, Algolia ni búsqueda vectorial.
 
 ## Scripts
 
 - `npm run mock:generate` — regenera JSON de demostración
+- `npm test` — contratos de dominio, API y repository (sin base de datos)
 - `npm run ingest -- fixtures/ingest` — prueba de ingesta CSV DJPI (omite grupo familiar)
-- `npm run db:generate` / `db:migrate` / `db:seed` — schema y seed contra Neon
+- `npm run db:generate` — genera SQL a partir de `src/lib/data/postgres/schema.ts`
+- `npm run db:migrate` — aplica `drizzle/*.sql`
+- `npm run db:seed` — recrea el mock en Postgres
 
-## Postgres (Fase 6)
-
-1. En un proyecto Vercel vinculado: `vercel integration add neon`
-2. `vercel env pull .env.local`
-3. `DATA_SOURCE=postgres`
-4. `npm run db:migrate && npm run db:seed`
-
-El cliente Neon se instancia de forma lazy (`getDb()`), para que `next build` no falle sin `DATABASE_URL`.
-
-Búsqueda en Postgres: `unaccent` + `ILIKE` y índice `pg_trgm` sobre nombre.
+Tests de equivalencia mock vs Postgres corren solo si `DATABASE_URL` está definida.
 
 ## Ingesta (Fase 7)
 
@@ -58,9 +104,9 @@ Lee CSV DJPI (consolidado, bienes, deudas). Omite archivos o columnas de grupo f
 
 ## API
 
-`GET /api/v1/legisladores` — query: `q`, `camara`, `distrito`, `estado`, `anio`, `cuit`, `page`, `page_size`, `sort`.
+`GET /api/v1/legisladores` — query: `q`, `camara`, `distrito`, `estado`, `anio`, `page`, `page_size`, `sort`.
 
-Las páginas del sitio no pasan por la API: leen el repositorio de datos en el servidor.
+Las páginas del sitio no pasan por la API: leen el repositorio de datos en el servidor. La API no distingue mock de Postgres.
 
 ## Licencia
 

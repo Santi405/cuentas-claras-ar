@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionNav } from "@/components/editorial/section-nav";
-import { isMockMode } from "@/lib/data/mode";
+import { isFictionalData } from "@/lib/data/mode";
 
 export const metadata: Metadata = {
   title: "Datos abiertos",
@@ -30,7 +30,7 @@ const SECTIONS = [
 const linkClass = "text-accent underline underline-offset-2";
 
 export default function DatosPage() {
-  const mock = isMockMode();
+  const mock = isFictionalData();
 
   return (
     <article className="editorial-article mx-auto max-w-3xl px-4 py-10">

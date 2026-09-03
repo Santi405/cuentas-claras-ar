@@ -1,4 +1,13 @@
+/**
+ * PostgreSQL schema for the legislator repository.
+ *
+ * Search uses the `unaccent` extension (created in drizzle/0000_init.sql)
+ * so LIKE matches `normalizeSearch` in the mock adapter (García = garcia).
+ * A trigram index is not used: the current explorer is a small listing,
+ * and `unaccent()` is not IMMUTABLE so it cannot sit in a stock Postgres index.
+ */
 import {
+  date,
   index,
   integer,
   numeric,
@@ -31,7 +40,7 @@ export const personas = pgTable(
     nombre: text("nombre").notNull(),
     slug: text("slug").notNull(),
     cuit: text("cuit"),
-    fechaNacimiento: text("fecha_nacimiento"),
+    fechaNacimiento: date("fecha_nacimiento", { mode: "string" }),
     fotoUrl: text("foto_url"),
   },
   (t) => [
@@ -50,8 +59,8 @@ export const mandatos = pgTable(
       .references(() => personas.id),
     camara: camaraEnum("camara").notNull(),
     distrito: text("distrito").notNull(),
-    inicio: text("inicio").notNull(),
-    fin: text("fin"),
+    inicio: date("inicio", { mode: "string" }).notNull(),
+    fin: date("fin", { mode: "string" }),
     bloque: text("bloque"),
     interbloque: text("interbloque"),
     listaElectoral: text("lista_electoral"),
@@ -68,7 +77,7 @@ export const fuentes = pgTable("fuentes", {
   id: uuid("id").primaryKey(),
   nombre: text("nombre").notNull(),
   url: text("url"),
-  snapshotDate: text("snapshot_date").notNull(),
+  snapshotDate: date("snapshot_date", { mode: "string" }).notNull(),
   archivo: text("archivo").notNull(),
   archivoHash: text("archivo_hash").notNull(),
 });

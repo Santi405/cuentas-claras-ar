@@ -7,6 +7,10 @@ import {
 } from "@/lib/domain/calculos";
 import { nombreCompleto } from "@/lib/domain/formatters";
 import { paginate, PAGE_SIZE_MAX } from "@/lib/domain/pagination";
+import {
+  estadoDeMandatos,
+  mandatoActualDe,
+} from "@/lib/domain/mandatos";
 import { sameDistrito, normalizeSearch, slugifyDistrito } from "@/lib/domain/slugs";
 import { sortLegisladores } from "@/lib/domain/sort";
 import type {
@@ -48,20 +52,6 @@ const slugRedirects = slugRedirectsJson as SlugRedirect[];
 
 const PAGE_SIZE_DEFAULT = 25;
 
-function todayIso(): string {
-  return new Date().toISOString().slice(0, 10);
-}
-
-function mandatoVigente(m: Mandato, today = todayIso()): boolean {
-  return m.fin === null || m.fin >= today;
-}
-
-function estadoDe(personaId: string): EstadoLegislador {
-  return mandatos.some((m) => m.personaId === personaId && mandatoVigente(m))
-    ? "en_ejercicio"
-    : "historico";
-}
-
 function mandatosDe(personaId: string): Mandato[] {
   return mandatos
     .filter((m) => m.personaId === personaId)
@@ -69,8 +59,11 @@ function mandatosDe(personaId: string): Mandato[] {
 }
 
 function mandatoActual(personaId: string): Mandato | null {
-  const list = mandatosDe(personaId);
-  return list.filter((m) => mandatoVigente(m)).at(-1) ?? list.at(-1) ?? null;
+  return mandatoActualDe(mandatosDe(personaId));
+}
+
+function estadoDe(personaId: string): EstadoLegislador {
+  return estadoDeMandatos(mandatosDe(personaId));
 }
 
 function declaracionesDe(personaId: string): Declaracion[] {

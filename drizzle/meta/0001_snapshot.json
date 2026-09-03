@@ -1,0 +1,878 @@
+{
+  "id": "361e66ac-7f22-4b3b-a576-2e13a9ad840b",
+  "prevId": "cff7a9d2-376f-42d6-b166-e85d757c4215",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.bienes": {
+      "name": "bienes",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "declaracion_id": {
+          "name": "declaracion_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tipo": {
+          "name": "tipo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "descripcion": {
+          "name": "descripcion",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "origen_fondos": {
+          "name": "origen_fondos",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "titularidad_pct": {
+          "name": "titularidad_pct",
+          "type": "numeric(6, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "importe_ars": {
+          "name": "importe_ars",
+          "type": "numeric(18, 2)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "bienes_declaracion_idx": {
+          "name": "bienes_declaracion_idx",
+          "columns": [
+            {
+              "expression": "declaracion_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "bienes_declaracion_id_declaraciones_id_fk": {
+          "name": "bienes_declaracion_id_declaraciones_id_fk",
+          "tableFrom": "bienes",
+          "tableTo": "declaraciones",
+          "columnsFrom": [
+            "declaracion_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.declaraciones": {
+      "name": "declaraciones",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "persona_id": {
+          "name": "persona_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "anio_fiscal": {
+          "name": "anio_fiscal",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tipo": {
+          "name": "tipo",
+          "type": "tipo_declaracion",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fuente_id": {
+          "name": "fuente_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_dj_id": {
+          "name": "source_dj_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rectificativa": {
+          "name": "rectificativa",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "periodo": {
+          "name": "periodo",
+          "type": "periodo_declaracion",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "organismo_declarado": {
+          "name": "organismo_declarado",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cargo_declarado": {
+          "name": "cargo_declarado",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bienes_inicio": {
+          "name": "bienes_inicio",
+          "type": "numeric(18, 2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bienes_cierre": {
+          "name": "bienes_cierre",
+          "type": "numeric(18, 2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "deudas_inicio": {
+          "name": "deudas_inicio",
+          "type": "numeric(18, 2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "deudas_cierre": {
+          "name": "deudas_cierre",
+          "type": "numeric(18, 2)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "declaraciones_persona_anio_idx": {
+          "name": "declaraciones_persona_anio_idx",
+          "columns": [
+            {
+              "expression": "persona_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "anio_fiscal",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "declaraciones_source_dj_uidx": {
+          "name": "declaraciones_source_dj_uidx",
+          "columns": [
+            {
+              "expression": "source_dj_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "declaraciones_persona_id_personas_id_fk": {
+          "name": "declaraciones_persona_id_personas_id_fk",
+          "tableFrom": "declaraciones",
+          "tableTo": "personas",
+          "columnsFrom": [
+            "persona_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "declaraciones_fuente_id_fuentes_id_fk": {
+          "name": "declaraciones_fuente_id_fuentes_id_fk",
+          "tableFrom": "declaraciones",
+          "tableTo": "fuentes",
+          "columnsFrom": [
+            "fuente_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.deudas": {
+      "name": "deudas",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "declaracion_id": {
+          "name": "declaracion_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tipo": {
+          "name": "tipo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "descripcion": {
+          "name": "descripcion",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "radicacion": {
+          "name": "radicacion",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "clasificacion": {
+          "name": "clasificacion",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "importe_ars": {
+          "name": "importe_ars",
+          "type": "numeric(18, 2)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "deudas_declaracion_idx": {
+          "name": "deudas_declaracion_idx",
+          "columns": [
+            {
+              "expression": "declaracion_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "deudas_declaracion_id_declaraciones_id_fk": {
+          "name": "deudas_declaracion_id_declaraciones_id_fk",
+          "tableFrom": "deudas",
+          "tableTo": "declaraciones",
+          "columnsFrom": [
+            "declaracion_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.fuentes": {
+      "name": "fuentes",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "url": {
+          "name": "url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "snapshot_date": {
+          "name": "snapshot_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "archivo": {
+          "name": "archivo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "archivo_hash": {
+          "name": "archivo_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.identificadores_externos": {
+      "name": "identificadores_externos",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "persona_id": {
+          "name": "persona_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sistema": {
+          "name": "sistema",
+          "type": "identificador_sistema",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "valor": {
+          "name": "valor",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "identificadores_persona_idx": {
+          "name": "identificadores_persona_idx",
+          "columns": [
+            {
+              "expression": "persona_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "identificadores_sistema_valor_uidx": {
+          "name": "identificadores_sistema_valor_uidx",
+          "columns": [
+            {
+              "expression": "sistema",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "valor",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "identificadores_externos_persona_id_personas_id_fk": {
+          "name": "identificadores_externos_persona_id_personas_id_fk",
+          "tableFrom": "identificadores_externos",
+          "tableTo": "personas",
+          "columnsFrom": [
+            "persona_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.ingest_review_queue": {
+      "name": "ingest_review_queue",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "reason": {
+          "name": "reason",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "payload": {
+          "name": "payload",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.mandatos": {
+      "name": "mandatos",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "persona_id": {
+          "name": "persona_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "camara": {
+          "name": "camara",
+          "type": "camara",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "distrito": {
+          "name": "distrito",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "inicio": {
+          "name": "inicio",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fin": {
+          "name": "fin",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "bloque": {
+          "name": "bloque",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "interbloque": {
+          "name": "interbloque",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lista_electoral": {
+          "name": "lista_electoral",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "mandatos_persona_idx": {
+          "name": "mandatos_persona_idx",
+          "columns": [
+            {
+              "expression": "persona_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "mandatos_camara_idx": {
+          "name": "mandatos_camara_idx",
+          "columns": [
+            {
+              "expression": "camara",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "mandatos_distrito_idx": {
+          "name": "mandatos_distrito_idx",
+          "columns": [
+            {
+              "expression": "distrito",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "mandatos_vigentes_idx": {
+          "name": "mandatos_vigentes_idx",
+          "columns": [
+            {
+              "expression": "fin",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "mandatos_persona_id_personas_id_fk": {
+          "name": "mandatos_persona_id_personas_id_fk",
+          "tableFrom": "mandatos",
+          "tableTo": "personas",
+          "columnsFrom": [
+            "persona_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.personas": {
+      "name": "personas",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "apellido": {
+          "name": "apellido",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "slug": {
+          "name": "slug",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cuit": {
+          "name": "cuit",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fecha_nacimiento": {
+          "name": "fecha_nacimiento",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "foto_url": {
+          "name": "foto_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "personas_slug_uidx": {
+          "name": "personas_slug_uidx",
+          "columns": [
+            {
+              "expression": "slug",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "personas_cuit_uidx": {
+          "name": "personas_cuit_uidx",
+          "columns": [
+            {
+              "expression": "cuit",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "personas_apellido_idx": {
+          "name": "personas_apellido_idx",
+          "columns": [
+            {
+              "expression": "apellido",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.series_macro": {
+      "name": "series_macro",
+      "schema": "",
+      "columns": {
+        "anio": {
+          "name": "anio",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "ipc_indice": {
+          "name": "ipc_indice",
+          "type": "numeric(12, 4)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "usd_bcra_3500_cierre": {
+          "name": "usd_bcra_3500_cierre",
+          "type": "numeric(12, 4)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.slug_history": {
+      "name": "slug_history",
+      "schema": "",
+      "columns": {
+        "slug": {
+          "name": "slug",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "persona_id": {
+          "name": "persona_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "slug_history_persona_id_personas_id_fk": {
+          "name": "slug_history_persona_id_personas_id_fk",
+          "tableFrom": "slug_history",
+          "tableTo": "personas",
+          "columnsFrom": [
+            "persona_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {
+    "public.camara": {
+      "name": "camara",
+      "schema": "public",
+      "values": [
+        "diputados",
+        "senadores"
+      ]
+    },
+    "public.identificador_sistema": {
+      "name": "identificador_sistema",
+      "schema": "public",
+      "values": [
+        "cuit",
+        "oa_dj",
+        "camara",
+        "cne"
+      ]
+    },
+    "public.periodo_declaracion": {
+      "name": "periodo_declaracion",
+      "schema": "public",
+      "values": [
+        "I",
+        "C"
+      ]
+    },
+    "public.tipo_declaracion": {
+      "name": "tipo_declaracion",
+      "schema": "public",
+      "values": [
+        "inicial",
+        "anual",
+        "baja"
+      ]
+    }
+  },
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
