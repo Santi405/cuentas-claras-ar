@@ -10,6 +10,19 @@ El recorte cubre el Congreso nacional. No se muestran datos de grupo familiar.
 - Datos mock por defecto (`DATA_SOURCE=mock`)
 - PostgreSQL opcional: Neon + Drizzle (`DATA_SOURCE=postgres`)
 
+## Vercel
+
+La app vive en la **raíz del repositorio** (`package.json` junto a `next.config.ts`), no en `src/`. `src/` solo contiene el código de Next.js (`src/app`).
+
+En el proyecto de Vercel:
+
+1. Settings → General → **Root Directory**: dejalo **vacío** (no pongas `src`, `app` ni `src/app`).
+2. Framework Preset: **Next.js** (o autodetectado).
+3. Install Command / Build Command: no hace falta override; `vercel.json` usa `npm install` y `npm run build`.
+4. Redeploy del commit actual de `main`.
+
+Si Root Directory apunta a `src`, Vercel no ve `next` en `package.json` y falla con *No Next.js version detected*.
+
 ## Desarrollo
 
 ```bash
