@@ -22,8 +22,9 @@ const SECTIONS = [
   { id: "alcance", label: "Alcance de los futuros datos" },
   { id: "exclusiones", label: "Exclusiones" },
   { id: "identificadores", label: "Identificadores" },
-  { id: "api", label: "API de demostración" },
+  { id: "api", label: "API v1" },
   { id: "descargas", label: "Descargas" },
+  { id: "reporte", label: "Cómo reportar un error" },
 ] as const;
 
 const linkClass = "text-accent underline underline-offset-2";
@@ -123,9 +124,9 @@ export default function DatosPage() {
             anterior puede redirigir al vigente.
           </li>
           <li>
-            <strong>CUIT:</strong> identificador de matching. Puede aparecer en
-            una ficha si la fuente lo publica. No forma parte de la URL pública
-            y no se usa para inventar identificadores nuevos.
+            <strong>CUIT:</strong> identificador de matching interno. No forma
+            parte de la URL pública, no se usa para consultar la API y no se
+            incluye en las respuestas JSON públicas.
           </li>
         </ul>
         <p>
@@ -135,50 +136,136 @@ export default function DatosPage() {
       </section>
 
       <section id="api" className="mt-10 space-y-4">
-        <h2 className="font-serif text-2xl tracking-tight">API de demostración</h2>
+        <h2 className="font-serif text-2xl tracking-tight">API v1</h2>
         <p>
-          Existe una API de lectura sobre el mismo repositorio que usan las
-          páginas. Las páginas del sitio no la consultan por HTTP: leen el
-          repositorio en el servidor.
+          Lectura pública, JSON, versionada por path. Usa el mismo repositorio
+          que las páginas. Las páginas del sitio no la consultan por HTTP.
         </p>
         {mock ? (
           <p>
-            En el estado actual es una API de demostración sobre datos ficticios.
-            No es un servicio de datos abiertos publicado, no tiene garantía de
-            estabilidad y no debe usarse como fuente para informar sobre
-            personas reales.
+            Opera sobre datos ficticios de demostración. No debe usarse para
+            informar sobre personas reales.
           </p>
         ) : null}
-        <p>Rutas disponibles hoy:</p>
+        <h3 className="font-serif text-xl tracking-tight">Endpoints</h3>
         <ul className="list-disc space-y-2 pl-5">
           <li>
             <Link className={linkClass} href="/api/v1/legisladores" rel="nofollow">
               GET /api/v1/legisladores
             </Link>
           </li>
-          <li>GET /api/v1/legisladores/[id o slug]</li>
-          <li>GET /api/v1/legisladores/[id o slug]/ddjj</li>
+          <li>GET /api/v1/legisladores/[slug o UUID interno]</li>
+          <li>GET /api/v1/legisladores/[slug o UUID interno]/ddjj</li>
+          <li>GET /api/v1/legisladores/[slug o UUID interno]/mandatos</li>
+        </ul>
+        <p>
+          El identificador público preferido es el slug. El UUID puede usarse
+          porque aparece en <code>id</code>. El CUIT no es una clave de URL ni
+          de consulta.
+        </p>
+        <h3 className="font-serif text-xl tracking-tight">Listado</h3>
+        <p>Parámetros opcionales:</p>
+        <ul className="list-disc space-y-2 pl-5">
           <li>
-            <Link className={linkClass} href="/api/v1/ddjj" rel="nofollow">
-              GET /api/v1/ddjj
-            </Link>
+            <code>q</code> — texto de búsqueda (nombre, apellido o distrito)
           </li>
           <li>
-            <Link className={linkClass} href="/api/v1/mandatos" rel="nofollow">
-              GET /api/v1/mandatos
-            </Link>
+            <code>camara</code> — <code>diputados</code> o{" "}
+            <code>senadores</code>
+          </li>
+          <li>
+            <code>estado</code> — <code>en_ejercicio</code> o{" "}
+            <code>historico</code>
+          </li>
+          <li>
+            <code>distrito</code> — nombre o slug (por ejemplo{" "}
+            <code>caba</code>)
+          </li>
+          <li>
+            <code>anio</code> — año fiscal de una declaración disponible
+          </li>
+          <li>
+            <code>page</code> — entero ≥ 1 (default 1)
+          </li>
+          <li>
+            <code>page_size</code> — 1 a 100 (default 20)
+          </li>
+          <li>
+            <code>sort</code> — <code>nombre</code>, <code>-nombre</code>,{" "}
+            <code>neto</code>, <code>-neto</code>, <code>anio</code>,{" "}
+            <code>-anio</code> (default <code>nombre</code>)
           </li>
         </ul>
-        <p className="text-sm text-ink-muted">
-          Parámetros del listado de legisladores: <code>q</code>,{" "}
-          <code>camara</code>, <code>distrito</code>, <code>estado</code>,{" "}
-          <code>anio</code>, <code>page</code>, <code>page_size</code>,{" "}
-          <code>sort</code>. Respuesta JSON, solo GET.
-        </p>
         <p>
-          No se documentan aquí endpoints, formatos ni descargas que todavía no
-          existen.
+          Un parámetro presente y inválido responde <code>400</code>. Los
+          omitidos usan el default. El listado incluye personas en ejercicio y
+          históricas; <code>estado</code> es el modo de limitarlo. Si{" "}
+          <code>page</code> supera <code>total_pages</code>, se responde la
+          última página disponible.
         </p>
+        <h3 className="font-serif text-xl tracking-tight">Ejemplo</h3>
+        <pre className="overflow-x-auto border border-line bg-paper-raised p-4 text-sm">
+          {`GET /api/v1/legisladores?camara=senadores&page=1&page_size=20
+
+{
+  "data": [
+    {
+      "id": "…",
+      "slug": "demostracion-juan",
+      "nombre_completo": "Demostración, Juan",
+      "camara_actual": "senadores",
+      "distrito_actual": "Córdoba",
+      "estado": "en_ejercicio",
+      "ultimo_anio_declarado": 2023,
+      "neto_ars": 72000000
+    }
+  ],
+  "meta": {
+    "page": 1,
+    "page_size": 20,
+    "total": 1,
+    "total_pages": 1
+  }
+}`}
+        </pre>
+        <p className="text-sm text-ink-muted">
+          Los montos del ejemplo son ilustrativos. <code>neto_ars</code> es el
+          patrimonio neto declarado en pesos del último año disponible, o{" "}
+          <code>null</code> si no hay declaración.
+        </p>
+        <h3 className="font-serif text-xl tracking-tight">Errores</h3>
+        <ul className="list-disc space-y-2 pl-5">
+          <li>
+            <code>400</code> — <code>INVALID_QUERY</code> (parámetro inválido)
+          </li>
+          <li>
+            <code>404</code> — <code>NOT_FOUND</code> (legislador inexistente)
+          </li>
+          <li>
+            <code>500</code> — error inesperado del servidor
+          </li>
+        </ul>
+        <pre className="overflow-x-auto border border-line bg-paper-raised p-4 text-sm">
+          {`{
+  "error": {
+    "code": "INVALID_QUERY",
+    "message": "El parámetro sort no es válido."
+  }
+}`}
+        </pre>
+        <h3 className="font-serif text-xl tracking-tight">Límites actuales</h3>
+        <ul className="list-disc space-y-2 pl-5">
+          <li>Solo GET. No hay autenticación ni cupos de uso.</li>
+          <li>
+            CORS cerrado: pensada para consumo server-to-server o same-origin.
+            Se puede revisar si aparece un consumidor cross-origin concreto.
+          </li>
+          <li>No hay descargas masivas ni series macroeconómicas oficiales.</li>
+          <li>
+            No se documentan aquí otras rutas internas o de transición que no
+            forman parte de este contrato.
+          </li>
+        </ul>
       </section>
 
       <section id="descargas" className="mt-10 space-y-4">
@@ -188,14 +275,37 @@ export default function DatosPage() {
           se publican archivos que simulen un dataset oficial.
         </p>
         <p>
-          Las descargas de datos consolidados se habilitarán cuando exista una
-          versión publicada y documentada del proceso de ingesta. Hasta entonces,
-          esta página describe el recorte; no entrega un volcado.
+          Las descargas de un dataset consolidado se habilitarán después de una
+          primera ingesta real reproducible, con snapshot versionado, schema
+          documentado, provenance y validaciones pasadas. Formatos previstos:
+          CSV y JSON. Licencia propuesta para el dataset derivado:{" "}
+          <strong>CC BY 4.0</strong>, con atribución a las fuentes originales.
         </p>
         <p>
-          El código del sitio se publica bajo licencia MIT. Los datos de origen,
-          cuando existan, seguirán la política de la fuente oficial y deberán
-          atribuirse a esa fuente. Este sitio no la reemplaza.
+          Hasta entonces no hay botones de descarga que apunten a archivos
+          inexistentes. El código del sitio se publica bajo licencia MIT. Este
+          sitio no reemplaza a las fuentes oficiales.
+        </p>
+      </section>
+
+      <section id="reporte" className="mt-10 space-y-4">
+        <h2 className="font-serif text-2xl tracking-tight">
+          Cómo reportar un error
+        </h2>
+        <p>
+          El canal previsto es{" "}
+          <a
+            className={linkClass}
+            href="https://github.com/Santi405/cuentas-claras-ar/issues/new/choose"
+          >
+            GitHub Issues
+          </a>
+          . Hay plantillas para dato posiblemente incorrecto, identificación
+          incorrecta, declaración faltante, problema de fuente y bug técnico.
+        </p>
+        <p>
+          No hay formulario propio ni autenticación en este sitio. Una
+          corrección futura debe dejar rastro de la fuente y del cambio.
         </p>
       </section>
     </article>

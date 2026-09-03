@@ -1,0 +1,16 @@
+name: Bug técnico
+description: Error de la interfaz, de la API o del sitio.
+title: "[bug] "
+labels: []
+body:
+  - type: textarea
+    id: reproducir
+    attributes:
+      label: Cómo reproducirlo
+      description: URL, pasos y resultado observado. No incluyas secretos ni datos reservados.
+    validations:
+      required: true
+  - type: input
+    id: entorno
+    attributes:
+      label: Navegador o cliente HTTP

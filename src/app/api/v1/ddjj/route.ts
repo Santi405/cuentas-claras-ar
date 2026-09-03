@@ -1,29 +1,27 @@
-import { jsonError, jsonOk, optionsOk } from "@/lib/api/envelope";
-import { asRecord, ddjjQuerySchema } from "@/lib/api/schemas";
+import { invalidQuery, jsonOk, notFound } from "@/lib/api/envelope";
+import { asRecord, ddjjQuerySchema, invalidQueryMessage } from "@/lib/api/schemas";
+import { publicDeclaracionDetalle } from "@/lib/api/serialize";
 import {
   getLegisladorByIdOrSlug,
   listDeclaraciones,
   searchLegisladores,
 } from "@/lib/data/cached";
-
-export function OPTIONS() {
-  return optionsOk();
-}
+import { PAGE_SIZE_MAX } from "@/lib/domain/pagination";
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const parsed = ddjjQuerySchema.safeParse(asRecord(url.searchParams));
   if (!parsed.success) {
-    return jsonError(400, "invalid_query", "Parámetros inválidos", parsed.error.flatten());
+    return invalidQuery(invalidQueryMessage(parsed.error));
   }
   const q = parsed.data;
   let personaIds: string[] = [];
   if (q.persona) {
     const legislator = await getLegisladorByIdOrSlug(q.persona);
-    if (!legislator) return jsonError(404, "not_found", "Legislador no encontrado");
+    if (!legislator) return notFound();
     personaIds = [legislator.persona.id];
   } else {
-    const list = await searchLegisladores({ page: 1, pageSize: 100 });
+    const list = await searchLegisladores({ page: 1, pageSize: PAGE_SIZE_MAX });
     personaIds = list.data.map((p) => p.id);
   }
 
@@ -39,17 +37,19 @@ export async function GET(request: Request) {
 
   const start = (q.page - 1) * q.page_size;
   const slice = filtered.slice(start, start + q.page_size);
+  const totalPages =
+    filtered.length === 0 ? 0 : Math.ceil(filtered.length / q.page_size);
 
   return jsonOk({
     data: slice.map((d) => ({
-      id: d.id,
       persona_id: d.personaId,
-      anio_fiscal: d.anioFiscal,
-      tipo: d.tipo,
-      neto: d.neto,
-      source_dj_id: d.sourceDjId,
-      fuente: d.fuente,
+      ...publicDeclaracionDetalle(d),
     })),
-    meta: { page: q.page, page_size: q.page_size, total: filtered.length },
+    meta: {
+      page: q.page,
+      page_size: q.page_size,
+      total: filtered.length,
+      total_pages: totalPages,
+    },
   });
 }

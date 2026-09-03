@@ -31,4 +31,13 @@ Conceptuales: patrimonial (DJPI oficial, futura), parlamentaria (mandatos), macr
 
 ## Identificadores
 
-UUID interno, slug en la URL, CUIT solo para matching. Ver `/datos`.
+UUID interno, slug en la URL, CUIT solo para matching. La API pública no usa CUIT en la URL ni en el JSON. Ver `/datos`.
+
+## Matching (futura ingesta)
+
+CUIT presente → auto-match tras validación. CUIT ausente → revisión. Nombre parecido → nunca auto-match.
+
+## Autoridad por dato
+
+Patrimonial → OA. Parlamentario → cámara. Electoral → CNE. IPC → INDEC. FX → BCRA Com. A 3500.
+

@@ -1,0 +1,26 @@
+name: Identificación incorrecta
+description: Una persona, mandato o declaración está asociada a otra identidad.
+title: "[identificacion] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        El CUIT es un identificador de matching interno. Un nombre parecido no alcanza para unir registros.
+  - type: textarea
+    id: descripcion
+    attributes:
+      label: Qué identificación parece incorrecta
+      description: Slug o UUID visible, y con qué persona o mandato se lo está confundiendo.
+    validations:
+      required: true
+  - type: dropdown
+    id: cuit
+    attributes:
+      label: ¿Había CUIT en las fuentes?
+      options:
+        - "Sí, y el matching parece mal aplicado"
+        - "No había CUIT (debería haber ido a revisión)"
+        - "No lo sé"
+    validations:
+      required: true

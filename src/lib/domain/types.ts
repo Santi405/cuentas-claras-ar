@@ -137,6 +137,21 @@ export type SerieMacro = {
   usdBcra3500Cierre: number;
 };
 
+/**
+ * Future public observation for official macro series.
+ * Not persisted or served in this phase. Storage should keep the original
+ * scale and base; presentation may normalize later.
+ */
+export type SerieMacroObservacion = {
+  source: "indec" | "bcra";
+  seriesId: string;
+  period: string;
+  value: number;
+  unit: string;
+  originalBase: string | null;
+  retrievedAt: string;
+};
+
 export type LegisladorSearchParams = {
   q?: string;
   camara?: Camara;
