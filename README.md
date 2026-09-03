@@ -90,17 +90,20 @@ Búsqueda en Postgres: `unaccent` + `LIKE` (equivalente a `normalizeSearch` del 
 ## Scripts
 
 - `npm run mock:generate` — regenera JSON de demostración
-- `npm test` — contratos de dominio, API y repository (sin base de datos)
-- `npm run ingest -- fixtures/ingest` — prueba de ingesta CSV DJPI (omite grupo familiar)
+- `npm test` — contratos de dominio, API, repository e inspect/validación de ingesta (sin base de datos)
+- `npm run ingest:inspect -- path/al.csv` — inspección de solo lectura (checksum, schema, stats). No toca PostgreSQL
+- `npm run ingest -- fixtures/ingest` — prototipo sobre CSV sintéticos (omite grupo familiar). No persiste salvo `INGEST_ALLOW_PERSIST=true`
 - `npm run db:generate` — genera SQL a partir de `src/lib/data/postgres/schema.ts`
 - `npm run db:migrate` — aplica `drizzle/*.sql`
-- `npm run db:seed` — recrea el mock en Postgres
+- `npm run db:seed` — recrea el mock en Postgres. No usarlo contra declaraciones reales
+
+Documentación de fuentes y pipeline (Fase 7A): `docs/data-sources.md`, `docs/data-ingestion.md`.
 
 Tests de equivalencia mock vs Postgres corren solo si `DATABASE_URL` está definida.
 
 ## Ingesta (Fase 7)
 
-Lee CSV DJPI (consolidado, bienes, deudas). Omite archivos o columnas de grupo familiar. Solo acepta filas que parezcan legisladores nacionales. Fusiona por CUIT; sin CUIT manda a cola de revisión (no hay automerge por nombre).
+Lee CSV DJPI (consolidado, bienes, deudas). Omite archivos o columnas de grupo familiar. Solo acepta filas que parezcan legisladores nacionales. Fusiona por CUIT validado; sin CUIT o sin persona previa manda a cola de revisión (no hay automerge por nombre). El comando de discovery de Fase 7A es `ingest:inspect`, no este prototipo.
 
 ## API
 

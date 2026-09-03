@@ -4,6 +4,11 @@ import * as t from "@/lib/data/postgres/schema";
 import type { IngestResult } from "./pipeline";
 
 export async function persistIngestResult(result: IngestResult): Promise<void> {
+  if (process.env.INGEST_ALLOW_PERSIST !== "true") {
+    throw new Error(
+      "Persistencia de ingesta deshabilitada (Fase 7A). No se escribe PostgreSQL salvo INGEST_ALLOW_PERSIST=true en un experimento local explícito.",
+    );
+  }
   const db = getDb();
   const now = new Date().toISOString();
 

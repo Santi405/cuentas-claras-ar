@@ -1,0 +1,3 @@
+dj_id,cuit,anio,tipo_declaracion_jurada_id,tipo_declaracion_jurada_descripcion,rectificativa,funcionario_apellido_nombre,periodo_inicio_cierre,bien_tipo,bien_descripcion, bien_origen_fondos, bien_titularidad, bien_importe
+910001,20000000028,2024,1,Anual,0,"Ejemplo, Ana",C,Inmueble,Departamento de demostracion,Haberes,100.00,800000.00
+910001,20000000028,2024,1,Anual,0,"Ejemplo, Ana",C,Automotor,Vehiculo de demostracion,INGRESOS PROPIOS,50.00,150000.00

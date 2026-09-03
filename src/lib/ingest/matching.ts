@@ -1,13 +1,9 @@
-const FAMILIAR_COLUMN_RE = /^familiar_/i;
-const GRUPO_FAMILIAR_FILE_RE = /grupo[-_ ]?familiar/i;
+import { parseCuit } from "./cuit";
 
-export function isGrupoFamiliarResource(filename: string): boolean {
-  return GRUPO_FAMILIAR_FILE_RE.test(filename);
-}
-
-export function hasFamiliarColumns(headers: string[]): boolean {
-  return headers.some((h) => FAMILIAR_COLUMN_RE.test(h));
-}
+export {
+  hasFamiliarColumns,
+  isGrupoFamiliarResource,
+} from "./family";
 
 export function looksLikeLegisladorNacional(
   organismo: string,
@@ -28,11 +24,10 @@ export function looksLikeLegisladorNacional(
   return cargoHint && (cuerpoHint || cargoHint) && !excluded;
 }
 
+/** Canonical 11-digit CUIT or null. Does not pad short values. */
 export function padCuit(value: string | number | null | undefined): string | null {
-  if (value === null || value === undefined || value === "") return null;
-  const digits = String(value).replace(/\D/g, "");
-  if (!digits) return null;
-  return digits.padStart(11, "0");
+  const parsed = parseCuit(value);
+  return parsed.ok ? parsed.canonical : null;
 }
 
 export function normalizeNombre(value: string): string {

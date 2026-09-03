@@ -106,6 +106,9 @@ export const declaraciones = pgTable(
   },
   (t) => [
     index("declaraciones_persona_anio_idx").on(t.personaId, t.anioFiscal),
+    // 2024 OA consolidado repeats dj_id (hyphen vs dot money encodings).
+    // Unique on source_dj_id alone is incompatible with the official dump
+    // until 7B deduplicates serialization pairs. See docs/data-ingestion.md.
     uniqueIndex("declaraciones_source_dj_uidx").on(t.sourceDjId),
   ],
 );
@@ -174,6 +177,12 @@ export const seriesMacro = pgTable("series_macro", {
   }).notNull(),
 });
 
+/**
+ * Prototype review table from Fase 6. Insufficient for the 7A contract:
+ * missing source, source_row_identifier, candidate_person_id, status, reviewed_at.
+ * Do not migrate here — document the gap and add a minimal migration in 7B
+ * when persistence of real matches is implemented.
+ */
 export const ingestReviewQueue = pgTable("ingest_review_queue", {
   id: uuid("id").primaryKey(),
   reason: text("reason").notNull(),
