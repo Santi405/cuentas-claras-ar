@@ -549,7 +549,7 @@ for (const p of people) {
         anioFiscal: year,
         tipo: "anual",
         fuenteId: FUENTE_ID,
-        sourceDjId: 800000 + p.n * 100 + (year - 2000) + 1,
+        sourceDjId: 900000 + p.n * 100 + (year - 2000),
         rectificativa: 1,
         periodo: "C",
         organismoDeclarado: organimo(camara),

@@ -1,24 +1,20 @@
-import { and, desc, eq, ilike, or, sql } from "drizzle-orm";
+import { and, asc, eq, inArray } from "drizzle-orm";
 import {
   construirEvolucion,
   elegirDeclaracionesVisibles,
   montosSegunTipo,
   toResumen,
-  variacionInteranual,
 } from "@/lib/domain/calculos";
 import { nombreCompleto } from "@/lib/domain/formatters";
-import { paginate, PAGE_SIZE_MAX } from "@/lib/domain/pagination";
-import { sameDistrito, slugifyDistrito } from "@/lib/domain/slugs";
-import { sortLegisladores } from "@/lib/domain/sort";
+import { estadoDeMandatos } from "@/lib/domain/mandatos";
+import { slugifyDistrito } from "@/lib/domain/slugs";
 import type {
   Bien,
   Declaracion,
   DeclaracionDetalle,
   Deuda,
-  EstadoLegislador,
   Fuente,
   LegisladorDetalle,
-  LegisladorListItem,
   LegisladorSearchParams,
   Mandato,
   Persona,
@@ -26,13 +22,10 @@ import type {
 } from "@/lib/domain/types";
 import type { LegisladorRepository } from "@/lib/data/repository";
 import { getDb } from "./db";
+import { withPostgres } from "./errors";
+import { parseAmount, parseOptionalAmount } from "./numeric";
 import * as t from "./schema";
-
-const PAGE_SIZE_DEFAULT = 25;
-
-function num(value: string | number): number {
-  return typeof value === "number" ? value : Number(value);
-}
+import { searchLegisladoresSql } from "./search";
 
 function mapPersona(row: typeof t.personas.$inferSelect): Persona {
   return {
@@ -72,10 +65,10 @@ function mapDeclaracion(row: typeof t.declaraciones.$inferSelect): Declaracion {
     periodo: row.periodo,
     organismoDeclarado: row.organismoDeclarado,
     cargoDeclarado: row.cargoDeclarado,
-    bienesInicio: num(row.bienesInicio),
-    bienesCierre: num(row.bienesCierre),
-    deudasInicio: num(row.deudasInicio),
-    deudasCierre: num(row.deudasCierre),
+    bienesInicio: parseAmount(row.bienesInicio),
+    bienesCierre: parseAmount(row.bienesCierre),
+    deudasInicio: parseAmount(row.deudasInicio),
+    deudasCierre: parseAmount(row.deudasCierre),
   };
 }
 
@@ -90,26 +83,32 @@ function mapFuente(row: typeof t.fuentes.$inferSelect): Fuente {
   };
 }
 
-function todayIso(): string {
-  return new Date().toISOString().slice(0, 10);
+function mapBien(row: typeof t.bienes.$inferSelect): Bien {
+  return {
+    id: row.id,
+    declaracionId: row.declaracionId,
+    tipo: row.tipo,
+    descripcion: row.descripcion,
+    origenFondos: row.origenFondos,
+    titularidadPct: parseOptionalAmount(row.titularidadPct),
+    importeArs: parseAmount(row.importeArs),
+  };
 }
 
-function mandatoVigente(m: Mandato, today = todayIso()): boolean {
-  return m.fin === null || m.fin >= today;
-}
-
-function estadoDe(ms: Mandato[]): EstadoLegislador {
-  return ms.some((m) => mandatoVigente(m)) ? "en_ejercicio" : "historico";
-}
-
-function mandatoActual(ms: Mandato[]): Mandato | null {
-  const sorted = [...ms].sort((a, b) => a.inicio.localeCompare(b.inicio));
-  return sorted.filter((m) => mandatoVigente(m)).at(-1) ?? sorted.at(-1) ?? null;
+function mapDeuda(row: typeof t.deudas.$inferSelect): Deuda {
+  return {
+    id: row.id,
+    declaracionId: row.declaracionId,
+    tipo: row.tipo,
+    descripcion: row.descripcion,
+    radicacion: row.radicacion,
+    clasificacion: row.clasificacion,
+    importeArs: parseAmount(row.importeArs),
+  };
 }
 
 async function declaracionesPersona(personaId: string): Promise<Declaracion[]> {
-  const db = getDb();
-  const rows = await db
+  const rows = await getDb()
     .select()
     .from(t.declaraciones)
     .where(eq(t.declaraciones.personaId, personaId));
@@ -117,67 +116,78 @@ async function declaracionesPersona(personaId: string): Promise<Declaracion[]> {
 }
 
 async function mandatosPersona(personaId: string): Promise<Mandato[]> {
-  const db = getDb();
-  const rows = await db
+  const rows = await getDb()
     .select()
     .from(t.mandatos)
-    .where(eq(t.mandatos.personaId, personaId));
-  return rows.map(mapMandato).sort((a, b) => a.inicio.localeCompare(b.inicio));
+    .where(eq(t.mandatos.personaId, personaId))
+    .orderBy(asc(t.mandatos.inicio), asc(t.mandatos.id));
+  return rows.map(mapMandato);
 }
 
-async function hydrateDeclaracion(d: Declaracion): Promise<DeclaracionDetalle> {
+async function hydrateDeclaraciones(
+  declaraciones: Declaracion[],
+): Promise<DeclaracionDetalle[]> {
+  if (declaraciones.length === 0) return [];
   const db = getDb();
-  const [fuenteRow] = await db.select().from(t.fuentes).where(eq(t.fuentes.id, d.fuenteId));
-  if (!fuenteRow) throw new Error(`Fuente no encontrada: ${d.fuenteId}`);
-  const bienRows = await db.select().from(t.bienes).where(eq(t.bienes.declaracionId, d.id));
-  const deudaRows = await db.select().from(t.deudas).where(eq(t.deudas.declaracionId, d.id));
-  const montos = montosSegunTipo(d);
-  const bienesItems: Bien[] = bienRows.map((b) => ({
-    id: b.id,
-    declaracionId: b.declaracionId,
-    tipo: b.tipo,
-    descripcion: b.descripcion,
-    origenFondos: b.origenFondos,
-    titularidadPct: b.titularidadPct === null ? null : num(b.titularidadPct),
-    importeArs: num(b.importeArs),
-  }));
-  const deudasItems: Deuda[] = deudaRows.map((x) => ({
-    id: x.id,
-    declaracionId: x.declaracionId,
-    tipo: x.tipo,
-    descripcion: x.descripcion,
-    radicacion: x.radicacion,
-    clasificacion: x.clasificacion,
-    importeArs: num(x.importeArs),
-  }));
-  return {
-    ...d,
-    fuente: mapFuente(fuenteRow),
-    bienesItems,
-    deudasItems,
-    bienesMostrados: montos.bienes,
-    deudasMostradas: montos.deudas,
-    neto: montos.neto,
-  };
+  const ids = declaraciones.map((d) => d.id);
+  const fuenteIds = [...new Set(declaraciones.map((d) => d.fuenteId))];
+  const [fuenteRows, bienRows, deudaRows] = await Promise.all([
+    db.select().from(t.fuentes).where(inArray(t.fuentes.id, fuenteIds)),
+    db.select().from(t.bienes).where(inArray(t.bienes.declaracionId, ids)),
+    db.select().from(t.deudas).where(inArray(t.deudas.declaracionId, ids)),
+  ]);
+  const fuentes = new Map(fuenteRows.map((row) => [row.id, mapFuente(row)]));
+  const bienesByDecl = new Map<string, Bien[]>();
+  for (const row of bienRows) {
+    const item = mapBien(row);
+    const list = bienesByDecl.get(item.declaracionId) ?? [];
+    list.push(item);
+    bienesByDecl.set(item.declaracionId, list);
+  }
+  const deudasByDecl = new Map<string, Deuda[]>();
+  for (const row of deudaRows) {
+    const item = mapDeuda(row);
+    const list = deudasByDecl.get(item.declaracionId) ?? [];
+    list.push(item);
+    deudasByDecl.set(item.declaracionId, list);
+  }
+  return declaraciones.map((d) => {
+    const fuente = fuentes.get(d.fuenteId);
+    if (!fuente) throw new Error(`Fuente no encontrada: ${d.fuenteId}`);
+    const montos = montosSegunTipo(d);
+    return {
+      ...d,
+      fuente,
+      bienesItems: bienesByDecl.get(d.id) ?? [],
+      deudasItems: deudasByDecl.get(d.id) ?? [],
+      bienesMostrados: montos.bienes,
+      deudasMostradas: montos.deudas,
+      neto: montos.neto,
+    };
+  });
 }
 
 async function buildDetalle(persona: Persona): Promise<LegisladorDetalle> {
   const db = getDb();
-  const ms = await mandatosPersona(persona.id);
-  const visibles = elegirDeclaracionesVisibles(await declaracionesPersona(persona.id));
+  const [ms, declaraciones, cuitRow] = await Promise.all([
+    mandatosPersona(persona.id),
+    declaracionesPersona(persona.id),
+    db
+      .select()
+      .from(t.identificadoresExternos)
+      .where(
+        and(
+          eq(t.identificadoresExternos.personaId, persona.id),
+          eq(t.identificadoresExternos.sistema, "cuit"),
+        ),
+      )
+      .then((rows) => rows[0]),
+  ]);
+  const visibles = elegirDeclaracionesVisibles(declaraciones);
   const resumenes = visibles.map(toResumen);
-  const [cuitRow] = await db
-    .select()
-    .from(t.identificadoresExternos)
-    .where(
-      and(
-        eq(t.identificadoresExternos.personaId, persona.id),
-        eq(t.identificadoresExternos.sistema, "cuit"),
-      ),
-    );
   return {
     persona: { ...persona, nombreCompleto: nombreCompleto(persona.nombre, persona.apellido) },
-    estado: estadoDe(ms),
+    estado: estadoDeMandatos(ms),
     mandatos: ms,
     declaraciones: resumenes,
     evolucion: construirEvolucion(resumenes),
@@ -185,158 +195,133 @@ async function buildDetalle(persona: Persona): Promise<LegisladorDetalle> {
   };
 }
 
+const UUID_RE =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
 export const postgresRepository: LegisladorRepository = {
   mode() {
     return "postgres";
   },
 
-  async searchLegisladores(params: LegisladorSearchParams) {
-    const db = getDb();
-    const pageSize = Math.min(params.pageSize ?? PAGE_SIZE_DEFAULT, PAGE_SIZE_MAX);
-    const page = Math.max(params.page ?? 1, 1);
+  searchLegisladores(params: LegisladorSearchParams) {
+    return withPostgres(() => searchLegisladoresSql(params));
+  },
 
-    const conditions = [];
-    if (params.q) {
-      const q = `%${params.q}%`;
-      conditions.push(
-        or(
-          ilike(t.personas.apellido, q),
-          ilike(t.personas.nombre, q),
-          ilike(t.personas.slug, q),
-          sql`unaccent(lower(${t.personas.apellido} || ' ' || ${t.personas.nombre})) ilike unaccent(lower(${q}))`,
-          sql`unaccent(lower(${t.personas.nombre} || ' ' || ${t.personas.apellido})) ilike unaccent(lower(${q}))`,
-          sql`exists (select 1 from mandatos m where m.persona_id = ${t.personas.id} and unaccent(lower(m.distrito)) ilike unaccent(lower(${q})))`,
-        ),
-      );
-    }
-    if (params.cuit) {
-      conditions.push(eq(t.personas.cuit, params.cuit));
-    }
+  getLegisladorBySlug(slug: string) {
+    return withPostgres(async () => {
+      const [row] = await getDb()
+        .select()
+        .from(t.personas)
+        .where(eq(t.personas.slug, slug));
+      if (!row) return null;
+      return buildDetalle(mapPersona(row));
+    });
+  },
 
-    const personaRows = await db
-      .select()
-      .from(t.personas)
-      .where(conditions.length ? and(...conditions) : undefined);
-
-    const items: LegisladorListItem[] = [];
-    for (const row of personaRows) {
-      const persona = mapPersona(row);
-      const ms = await mandatosPersona(persona.id);
-      const actual = mandatoActual(ms);
-      const estado = estadoDe(ms);
-      if (params.camara && actual?.camara !== params.camara) continue;
-      if (params.distrito && !sameDistrito(actual?.distrito, params.distrito)) {
-        continue;
+  getLegisladorByIdOrSlug(idOrSlug: string) {
+    return withPostgres(async () => {
+      const db = getDb();
+      if (UUID_RE.test(idOrSlug)) {
+        const [byId] = await db
+          .select()
+          .from(t.personas)
+          .where(eq(t.personas.id, idOrSlug));
+        if (byId) return buildDetalle(mapPersona(byId));
       }
-      if (params.estado && estado !== params.estado) continue;
-      const visibles = elegirDeclaracionesVisibles(await declaracionesPersona(persona.id));
-      if (params.anio != null && !visibles.some((d) => d.anioFiscal === params.anio)) {
-        continue;
-      }
-      const resumenes = visibles.map(toResumen);
-      const evolucion = construirEvolucion(resumenes);
-      const ultima = resumenes.at(-1) ?? null;
-      items.push({
-        id: persona.id,
-        slug: persona.slug,
-        nombreCompleto: nombreCompleto(persona.nombre, persona.apellido),
-        camaraActual: actual?.camara ?? null,
-        distritoActual: actual?.distrito ?? null,
-        bloqueActual: actual?.bloque ?? null,
-        estado,
-        ultimoAnioDeclarado: ultima?.anioFiscal ?? null,
-        netoArs: ultima?.neto ?? null,
-        variacionNominalPct: ultima
-          ? variacionInteranual(evolucion, ultima.anioFiscal)
-          : null,
-      });
-    }
-
-    return paginate(sortLegisladores(items, params.sort), page, pageSize);
+      const [bySlug] = await db
+        .select()
+        .from(t.personas)
+        .where(eq(t.personas.slug, idOrSlug));
+      if (!bySlug) return null;
+      return buildDetalle(mapPersona(bySlug));
+    });
   },
 
-  async getLegisladorBySlug(slug: string) {
-    const db = getDb();
-    const [row] = await db.select().from(t.personas).where(eq(t.personas.slug, slug));
-    if (!row) return null;
-    return buildDetalle(mapPersona(row));
+  resolveSlugRedirect(slug: string) {
+    return withPostgres(async () => {
+      const db = getDb();
+      const [hit] = await db
+        .select()
+        .from(t.slugHistory)
+        .where(eq(t.slugHistory.slug, slug));
+      if (!hit) return null;
+      const [persona] = await db
+        .select()
+        .from(t.personas)
+        .where(eq(t.personas.id, hit.personaId));
+      return persona?.slug ?? null;
+    });
   },
 
-  async getLegisladorByIdOrSlug(idOrSlug: string) {
-    const db = getDb();
-    const isUuid =
-      /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(
-        idOrSlug,
+  getDeclaracion(personaId: string, anioFiscal: number) {
+    return withPostgres(async () => {
+      const visibles = elegirDeclaracionesVisibles(
+        await declaracionesPersona(personaId),
       );
-    if (isUuid) {
-      const [byId] = await db.select().from(t.personas).where(eq(t.personas.id, idOrSlug));
-      if (byId) return buildDetalle(mapPersona(byId));
-    }
-    const [bySlug] = await db.select().from(t.personas).where(eq(t.personas.slug, idOrSlug));
-    if (!bySlug) return null;
-    return buildDetalle(mapPersona(bySlug));
+      const d = visibles.find((x) => x.anioFiscal === anioFiscal);
+      if (!d) return null;
+      const [detalle] = await hydrateDeclaraciones([d]);
+      return detalle ?? null;
+    });
   },
 
-  async resolveSlugRedirect(slug: string) {
-    const db = getDb();
-    const [hit] = await db.select().from(t.slugHistory).where(eq(t.slugHistory.slug, slug));
-    if (!hit) return null;
-    const [persona] = await db.select().from(t.personas).where(eq(t.personas.id, hit.personaId));
-    return persona?.slug ?? null;
+  listDeclaraciones(personaId: string) {
+    return withPostgres(async () => {
+      const visibles = elegirDeclaracionesVisibles(
+        await declaracionesPersona(personaId),
+      );
+      return hydrateDeclaraciones(visibles);
+    });
   },
 
-  async getDeclaracion(personaId: string, anioFiscal: number) {
-    const visibles = elegirDeclaracionesVisibles(await declaracionesPersona(personaId));
-    const d = visibles.find((x) => x.anioFiscal === anioFiscal);
-    if (!d) return null;
-    return hydrateDeclaracion(d);
+  listMandatos(filters) {
+    return withPostgres(async () => {
+      const conditions = [];
+      if (filters?.camara) conditions.push(eq(t.mandatos.camara, filters.camara));
+      if (filters?.distrito) {
+        conditions.push(eq(t.mandatos.distrito, filters.distrito));
+      }
+      if (filters?.personaId) {
+        conditions.push(eq(t.mandatos.personaId, filters.personaId));
+      }
+      const rows = await getDb()
+        .select()
+        .from(t.mandatos)
+        .where(conditions.length ? and(...conditions) : undefined)
+        .orderBy(asc(t.mandatos.inicio), asc(t.mandatos.id));
+      return rows.map(mapMandato);
+    });
   },
 
-  async listDeclaraciones(personaId: string) {
-    const visibles = elegirDeclaracionesVisibles(await declaracionesPersona(personaId));
-    return Promise.all(visibles.map(hydrateDeclaracion));
+  listDistritos() {
+    return withPostgres(async () => {
+      const rows = await getDb()
+        .selectDistinct({ distrito: t.mandatos.distrito })
+        .from(t.mandatos);
+      return rows
+        .map((r) => r.distrito)
+        .sort((a, b) => a.localeCompare(b, "es-AR"))
+        .map((nombre) => ({ nombre, slug: slugifyDistrito(nombre) }));
+    });
   },
 
-  async listMandatos(filters) {
-    const db = getDb();
-    const conditions = [];
-    if (filters?.camara) conditions.push(eq(t.mandatos.camara, filters.camara));
-    if (filters?.distrito) conditions.push(eq(t.mandatos.distrito, filters.distrito));
-    if (filters?.personaId) conditions.push(eq(t.mandatos.personaId, filters.personaId));
-    const rows = await db
-      .select()
-      .from(t.mandatos)
-      .where(conditions.length ? and(...conditions) : undefined)
-      .orderBy(desc(t.mandatos.inicio));
-    return rows.map(mapMandato);
+  listAniosDeclaracion() {
+    return withPostgres(async () => {
+      const rows = await getDb()
+        .selectDistinct({ anioFiscal: t.declaraciones.anioFiscal })
+        .from(t.declaraciones);
+      return rows.map((r) => r.anioFiscal).sort((a, b) => b - a);
+    });
   },
 
-  async listDistritos() {
-    const db = getDb();
-    const rows = await db
-      .selectDistinct({ distrito: t.mandatos.distrito })
-      .from(t.mandatos);
-    return rows
-      .map((r) => r.distrito)
-      .sort((a, b) => a.localeCompare(b, "es-AR"))
-      .map((nombre) => ({ nombre, slug: slugifyDistrito(nombre) }));
-  },
-
-  async listAniosDeclaracion() {
-    const db = getDb();
-    const rows = await db
-      .selectDistinct({ anioFiscal: t.declaraciones.anioFiscal })
-      .from(t.declaraciones);
-    return rows.map((r) => r.anioFiscal).sort((a, b) => b - a);
-  },
-
-  async getSeriesMacro(): Promise<SerieMacro[]> {
-    const db = getDb();
-    const rows = await db.select().from(t.seriesMacro);
-    return rows.map((r) => ({
-      anio: r.anio,
-      ipcIndice: num(r.ipcIndice),
-      usdBcra3500Cierre: num(r.usdBcra3500Cierre),
-    }));
+  getSeriesMacro(): Promise<SerieMacro[]> {
+    return withPostgres(async () => {
+      const rows = await getDb().select().from(t.seriesMacro);
+      return rows.map((r) => ({
+        anio: r.anio,
+        ipcIndice: parseAmount(r.ipcIndice),
+        usdBcra3500Cierre: parseAmount(r.usdBcra3500Cierre),
+      }));
+    });
   },
 };

@@ -1,7 +1,7 @@
-import { isMockMode } from "@/lib/data/mode";
+import { isFictionalData } from "@/lib/data/mode";
 
 export function DemoBanner() {
-  if (!isMockMode()) return null;
+  if (!isFictionalData()) return null;
 
   return (
     <div
